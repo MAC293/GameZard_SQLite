@@ -1,0 +1,16 @@
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\GameZard.db
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\BLL.deps.json
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\BLL.dll
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\ref\BLL.dll
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\BLL.pdb
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\DAL.dll
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\bin\Debug\net5.0-windows\DAL.pdb
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.csproj.AssemblyReference.cache
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.AssemblyInfoInputs.cache
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.AssemblyInfo.cs
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.csproj.CoreCompileInputs.cache
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.dll
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\ref\BLL.dll
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.pdb
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.csproj.CopyComplete
