@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\App.xaml
-11407045341
+5-1835001813
 
-5740637576
+9-416958917
 215-1346391860
-MainWindow.xaml;
+Emulator.xaml;PC.xaml;Selector.xaml;TrayIconMenu.xaml;TrayIconOptions.xaml;
 
 True
 

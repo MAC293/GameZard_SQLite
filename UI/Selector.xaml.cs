@@ -16,10 +16,10 @@ using BLL;
 
 namespace UI
 {
-    public partial class MainWindow : Window
+    public partial class Selector : Window
     {
         Platform platform = new Platform();
-        public MainWindow()
+        public Selector()
         {
             InitializeComponent();
 

@@ -9,7 +9,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Selector.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

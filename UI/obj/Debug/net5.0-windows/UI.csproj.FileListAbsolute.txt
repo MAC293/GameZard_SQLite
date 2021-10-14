@@ -1,5 +1,4 @@
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.csproj.AssemblyReference.cache
-E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\MainWindow.g.cs
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\App.g.cs
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI_MarkupCompile.cache
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI_MarkupCompile.lref
@@ -17,13 +16,11 @@ E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\BL
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\DAL.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\BLL.pdb
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\DAL.pdb
-E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\MainWindow.baml
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.g.resources
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.GeneratedMSBuildEditorConfig.editorconfig
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.AssemblyInfoInputs.cache
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.AssemblyInfo.cs
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.csproj.CoreCompileInputs.cache
-E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.csproj.CopyComplete
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\ref\UI.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.pdb
@@ -62,3 +59,5 @@ E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\ru
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\Humanizer.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\Selector.g.cs
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\Selector.baml
