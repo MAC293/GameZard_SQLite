@@ -18,7 +18,7 @@ namespace UI
 {
     public partial class Selector : Window
     {
-        Platform platform = new Platform();
+        Platform emulator = new Platform();
         public Selector()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace UI
 
         public void Checking()
         {
-            if (platform.Connecting())
+            if (emulator.Connecting())
             {
                 MessageBox.Show("Connected");
             }

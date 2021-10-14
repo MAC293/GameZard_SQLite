@@ -9,7 +9,33 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Emulator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PC.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TrayIconMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TrayIconOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Emulator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Selector.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TrayIconMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TrayIconOptions.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
