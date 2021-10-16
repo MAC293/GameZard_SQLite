@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="Selector" Height="450" Width="800">
-    <Grid>
-
+        Title="Selector" Height="152" Width="275" Background="Black" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+    <Grid Background="Red">
+        <Image x:Name="image" Margin="0,18,0,18" HorizontalAlignment="Left" Width="100" Source="/GameZard.png" Stretch="Uniform"/>
+        <Button x:Name="button" Content="PC" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+        <Button x:Name="button1" Content="Emulator" HorizontalAlignment="Left" Margin="187,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition"/>
     </Grid>
 </Window>

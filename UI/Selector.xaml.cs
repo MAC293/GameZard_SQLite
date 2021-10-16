@@ -23,7 +23,7 @@ namespace UI
         {
             InitializeComponent();
 
-            Checking();
+            //Checking();
         }
 
         public void Checking()
