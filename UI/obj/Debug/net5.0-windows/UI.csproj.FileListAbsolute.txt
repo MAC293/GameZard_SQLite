@@ -80,4 +80,5 @@ E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\pt
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\ru\HandyControl.resources.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\tr\HandyControl.resources.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\App.baml
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\UI\obj\Debug\net5.0-windows\UI.csproj.CopyComplete

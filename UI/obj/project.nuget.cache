@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8fe4NUVpspL2oTqoZtwoqaSgp1I8KmeK7fQnstgQUcfCNzTSnn1dXYUZpevwJXAdxmZ0ONgwJl2OeUc/ahVn2w==",
+  "dgSpecHash": "Kjn7CtjxZfYCAVwP03Qi79Hnxx4CAjhHKdPF8n5LcbePk9kL5uQEggsnyvJlQVkspGVK1AgfpCyOigCqryqlNw==",
   "success": true,
   "projectFilePath": "E:\\Projects\\IT\\GameZard\\Solutions\\GameZard_SQLite\\UI\\UI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Makku293\\.nuget\\packages\\fontawesome.sharp\\5.15.3\\fontawesome.sharp.5.15.3.nupkg.sha512",
     "C:\\Users\\Makku293\\.nuget\\packages\\handycontrol\\3.2.0\\handycontrol.3.2.0.nupkg.sha512",
     "C:\\Users\\Makku293\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Makku293\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
