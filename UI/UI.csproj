@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Cemu.ico" />
+    <None Remove="ePSXe.ico" />
     <None Remove="GameZard.ico" />
     <None Remove="GameZard.png" />
+    <None Remove="PCSX2.ico" />
+    <None Remove="PPSSPP.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,8 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Cemu.ico" />
+    <Resource Include="ePSXe.ico" />
     <Resource Include="GameZard.ico" />
     <Resource Include="GameZard.png" />
+    <Resource Include="PCSX2.ico" />
+    <Resource Include="PPSSPP.ico" />
   </ItemGroup>
 
 </Project>

@@ -33,8 +33,20 @@
 
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
             <Grid>
-                
+                <fa:IconImage x:Name="iconImage" Height="30" Width="30" Source="/Cemu.ico" Margin="5,10,160,60"/>
+                <fa:IconImage x:Name="iconImage1" Height="30" Width="30" Source="/PPSSPP.ico" RenderTransformOrigin="-0.29,0.931" Margin="12,45,168,25" d:LayoutOverrides="VerticalAlignment" />
+                <fa:IconImage x:Name="iconImage2" Height="30" Width="30"  Margin="15,80,165,-10" Source="/PCSX2.ico"/>
+                <fa:IconImage x:Name="iconImage3" Height="30" Width="30" Margin="15,110,165,-40" Source="/ePSXe.ico" />
+                <fa:IconImage x:Name="iconImage4" Height="30" Width="30" Margin="15,145,165,-75" Source="/Dolphin.ico" />
+                <fa:IconImage x:Name="iconImage5" Height="30" Width="30" Margin="15,180,165,-110" Source="/Dolphin.ico" />
+                <fa:IconImage x:Name="iconImage6" Height="30" Width="30" Margin="15,215,165,-145" Source="/Citra.ico" />
+                <fa:IconImage x:Name="iconImage7" Height="30" Width="30" Margin="15,250,165,-180" Source="/VisualBoyAdvance.ico" />
+                <fa:IconImage x:Name="iconImage8" Height="30" Width="30" Margin="15,285,165,-215" Source="/SNES9x.ico" />
+                <fa:IconImage x:Name="iconImage9" Height="30" Width="30" Margin="15,320,165,-250" Source="/YUZU.ico" />
             </Grid>
+            
+
+
         </StackPanel>
 
         <!--Platforms-->
@@ -43,10 +55,10 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" Background="Gray">
             <Grid>
-                
+
             </Grid>
         </StackPanel>
-        
+
         <!--Emulator-->
 
 
