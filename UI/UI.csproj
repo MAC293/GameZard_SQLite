@@ -8,11 +8,16 @@
 
   <ItemGroup>
     <None Remove="Cemu.ico" />
+    <None Remove="Citra.ico" />
+    <None Remove="Dolphin.ico" />
     <None Remove="ePSXe.ico" />
     <None Remove="GameZard.ico" />
     <None Remove="GameZard.png" />
     <None Remove="PCSX2.ico" />
     <None Remove="PPSSPP.ico" />
+    <None Remove="SNES9x.ico" />
+    <None Remove="VisualBoyAdvance.ico" />
+    <None Remove="YUZU.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,11 +35,16 @@
 
   <ItemGroup>
     <Resource Include="Cemu.ico" />
+    <Resource Include="Citra.ico" />
+    <Resource Include="Dolphin.ico" />
     <Resource Include="ePSXe.ico" />
     <Resource Include="GameZard.ico" />
     <Resource Include="GameZard.png" />
     <Resource Include="PCSX2.ico" />
     <Resource Include="PPSSPP.ico" />
+    <Resource Include="SNES9x.ico" />
+    <Resource Include="VisualBoyAdvance.ico" />
+    <Resource Include="YUZU.ico" />
   </ItemGroup>
 
 </Project>

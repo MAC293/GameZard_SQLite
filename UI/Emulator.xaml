@@ -33,20 +33,28 @@
 
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
             <Grid>
-                <fa:IconImage x:Name="iconImage" Height="30" Width="30" Source="/Cemu.ico" Margin="5,10,160,60"/>
-                <fa:IconImage x:Name="iconImage1" Height="30" Width="30" Source="/PPSSPP.ico" RenderTransformOrigin="-0.29,0.931" Margin="12,45,168,25" d:LayoutOverrides="VerticalAlignment" />
-                <fa:IconImage x:Name="iconImage2" Height="30" Width="30"  Margin="15,80,165,-10" Source="/PCSX2.ico"/>
-                <fa:IconImage x:Name="iconImage3" Height="30" Width="30" Margin="15,110,165,-40" Source="/ePSXe.ico" />
-                <fa:IconImage x:Name="iconImage4" Height="30" Width="30" Margin="15,145,165,-75" Source="/Dolphin.ico" />
-                <fa:IconImage x:Name="iconImage5" Height="30" Width="30" Margin="15,180,165,-110" Source="/Dolphin.ico" />
-                <fa:IconImage x:Name="iconImage6" Height="30" Width="30" Margin="15,215,165,-145" Source="/Citra.ico" />
-                <fa:IconImage x:Name="iconImage7" Height="30" Width="30" Margin="15,250,165,-180" Source="/VisualBoyAdvance.ico" />
-                <fa:IconImage x:Name="iconImage8" Height="30" Width="30" Margin="15,285,165,-215" Source="/SNES9x.ico" />
-                <fa:IconImage x:Name="iconImage9" Height="30" Width="30" Margin="15,320,165,-250" Source="/YUZU.ico" />
+                <fa:IconImage x:Name="iconImage" Height="30" Width="30" Source="/Cemu.ico" Margin="10,10,170,315"/>
+                <fa:IconImage x:Name="iconImage1" Height="30" Width="30" Source="/PPSSPP.ico" RenderTransformOrigin="-0.29,0.931" Margin="10,45,170,280" />
+                <fa:IconImage x:Name="iconImage2" Height="30" Width="30"  Margin="13,80,167,245" Source="/PCSX2.ico"/>
+                <fa:IconImage x:Name="iconImage3" Height="30" Width="30" Margin="13,110,167,215" Source="/ePSXe.ico" />
+                <fa:IconImage x:Name="iconImage4" Height="30" Width="30" Margin="13,145,167,180" Source="/Dolphin.ico" />
+                <fa:IconImage x:Name="iconImage5" Height="30" Width="30" Margin="13,180,167,145" Source="/Dolphin.ico" />
+                <fa:IconImage x:Name="iconImage6" Height="30" Width="30" Margin="13,215,167,110" Source="/Citra.ico" />
+                <fa:IconImage x:Name="iconImage7" Height="30" Width="30" Margin="13,250,167,75" Source="/VisualBoyAdvance.ico" />
+                <fa:IconImage x:Name="iconImage8" Height="30" Width="30" Margin="13,285,167,40" Source="/SNES9x.ico" />
+                <fa:IconImage x:Name="iconImage9" Height="30" Width="30" Margin="13,320,167,5" Source="/YUZU.ico" />
+                <Button x:Name="button" Content="Cemu" HorizontalAlignment="Left" Margin="48,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+                <Button x:Name="button_Copy" Content="PPSSPP" HorizontalAlignment="Left" Margin="48,45,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+                <Button x:Name="button_Copy1" Content="PCSX2" HorizontalAlignment="Left" Margin="47,80,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+                <Button x:Name="button_Copy2" Content="ePSXe" HorizontalAlignment="Left" Margin="47,115,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+                <Button x:Name="button_Copy3" Content="Dolphin (Wii)" HorizontalAlignment="Left" Margin="47,150,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
+                <Button x:Name="button_Copy4" Content="Button" HorizontalAlignment="Left" Margin="48,185,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_Copy5" Content="Dolphin (GameCube)" HorizontalAlignment="Left" Margin="48,185,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_Copy6" Content="Citra" HorizontalAlignment="Left" Margin="48,220,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_Copy7" Content="Visual Boy Advance" HorizontalAlignment="Left" Margin="48,255,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_Copy8" Content="SNES9x" HorizontalAlignment="Left" Margin="48,290,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button_Copy9" Content="YUZU" HorizontalAlignment="Left" Margin="48,325,0,0" VerticalAlignment="Top"/>
             </Grid>
-            
-
-
         </StackPanel>
 
         <!--Platforms-->
