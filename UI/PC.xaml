@@ -33,12 +33,12 @@
                 <hc:TextBox x:Name="textBox" Text="TextBox" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
                 <Button Name="button1" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="29">
                     <Button.Background>
-                        <ImageBrush ImageSource="/Assets/Icons/Add Game.ico"/>
+                        <ImageBrush ImageSource="/Add Game.png"/>
                     </Button.Background>
                 </Button>
                 <Button Name="button2" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="28">
                     <Button.Background>
-                        <ImageBrush ImageSource="/Assets/Icons/Delete Game.ico"/>
+                        <ImageBrush ImageSource="/Delete Game.png"/>
                     </Button.Background>
                 </Button>
             </Grid>

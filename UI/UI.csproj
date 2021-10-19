@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Add Game.png" />
     <None Remove="Cemu.ico" />
     <None Remove="Citra.ico" />
+    <None Remove="Delete Game.png" />
     <None Remove="Dolphin.ico" />
     <None Remove="ePSXe.ico" />
     <None Remove="GameZard.ico" />
@@ -34,8 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Add Game.png" />
     <Resource Include="Cemu.ico" />
     <Resource Include="Citra.ico" />
+    <Resource Include="Delete Game.png" />
     <Resource Include="Dolphin.ico" />
     <Resource Include="ePSXe.ico" />
     <Resource Include="GameZard.ico" />
