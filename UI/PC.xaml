@@ -29,7 +29,7 @@
 
         <!--List-->
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
-            <Grid>
+            <Grid Height="244">
                 <hc:TextBox x:Name="textBox" Text="TextBox" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
                 <Button Name="button1" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="29">
                     <Button.Background>
@@ -41,7 +41,9 @@
                         <ImageBrush ImageSource="/Delete Game.png"/>
                     </Button.Background>
                 </Button>
+                <ListBox x:Name="listBox" Height="118" Margin="10,45,46,0" VerticalAlignment="Top"/>
             </Grid>
+
         </StackPanel>
         <!--List-->
 
