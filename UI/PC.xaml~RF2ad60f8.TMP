@@ -20,7 +20,6 @@
 
 
         <!--Logo-->
-        
         <StackPanel Grid.Column="0" Grid.Row="0" Background="Gold">
             <Grid>
                 <Label x:Name="label" Content="PC" Margin="0,10,0,0" Background="Transparent" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition"/>
@@ -31,11 +30,9 @@
                 </Button>
             </Grid>
         </StackPanel>
-        
         <!--Logo-->
 
         <!--List-->
-        
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
             <Grid Height="244">
                 <hc:TextBox x:Name="txtAddRemoveGame" Text="TextBox" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
@@ -53,27 +50,23 @@
             </Grid>
 
         </StackPanel>
-        
         <!--List-->
 
         <!--Options-->
-        
         <StackPanel Grid.Column="1" Grid.Row="0" Background="Orange">
             <Grid>
-                <Button x:Name="btnRemoveData" Content="- Delete Savedata" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+                <Button x:Name="button" Content="- Delete Savedata" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
             </Grid>
         </StackPanel>
-        
         <!--Options-->
 
         <!--Game-->
         <!--<StackPanel Grid.Column="1" Grid.Row="1" Background="Purple">
           
         </StackPanel>-->
-        
         <Grid Grid.Column="1" Grid.Row="1" Background="Red">
-            <Image x:Name="imgGameCover" Stretch="Fill" Source="/Game Cover Example.png" Margin="20,20,536,376" Width="252" Height="356" />
-            <Button x:Name="btnChangeCover" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30">
+            <Image x:Name="img" Stretch="Fill" Source="/Game Cover Example.png" Margin="20,20,536,376" Width="252" Height="356" />
+            <Button x:Name="button3" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>
@@ -86,18 +79,18 @@
                     <ImageBrush ImageSource="/Edit.png" />
                 </Button.Background>
             </Button>
-            <Label x:Name="lblGameName" Content="Label" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,26,0,0" VerticalAlignment="Top" FontSize="15"/>
+            <Label x:Name="label1" Content="Label" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,26,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label x:Name="label1_Copy" Content="Back-Up" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,70,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <RadioButton x:Name="rbManually" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top"/>
-            <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="radioButton" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="radioButton_Copy" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label1_Copy1" Content="From" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,118,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <TextBox x:Name="txtFrom" Margin="301,150,110,523" Text="TextBox" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
-            <Button x:Name="btnFromPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,150,0,0" VerticalAlignment="Top" Height="40"/>
+            <TextBox x:Name="textBox1" Margin="301,150,110,523" Text="TextBox" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
+            <Button x:Name="button4" Content="Browse Path" HorizontalAlignment="Left" Margin="694,150,0,0" VerticalAlignment="Top" Height="40"/>
             <Label x:Name="label1_Copy2" Content="To" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,229,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <TextBox x:Name="txtTo" Margin="301,261,110,411" Text="TextBox" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
-            <Button x:Name="btnToPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,261,0,0" VerticalAlignment="Top" Height="41"/>
+            <TextBox x:Name="textBox1_Copy" Margin="301,261,110,411" Text="TextBox" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
+            <Button x:Name="button4_Copy" Content="Browse Path" HorizontalAlignment="Left" Margin="694,261,0,0" VerticalAlignment="Top" Height="41"/>
             <Label x:Name="label1_Copy3" Content="Last Saved:" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="303,354,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <Label x:Name="lblSavedDate" Content="Saved Date" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="390,354,0,0" VerticalAlignment="Top" FontSize="15"/>
+            <Label x:Name="label1_Copy4" Content="Saved Date" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="390,354,0,0" VerticalAlignment="Top" FontSize="15"/>
 
         </Grid>
         <!--<StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="0,32,0,0">

@@ -29,5 +29,6 @@ namespace UI
         {
             IconHelper.RemoveIcon(this);
         }
+
     }
 }
