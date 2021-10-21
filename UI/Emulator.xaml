@@ -81,10 +81,10 @@
                 <RadioButton x:Name="rbManually" Content="Manually" HorizontalAlignment="Left" Margin="132,145,0,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="257,145,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
                 <Label x:Name="label3" BorderThickness="0" Background="Transparent" Content="From" HorizontalAlignment="Left" Margin="35,211,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtFrom" Text="TextBox" TextWrapping="Wrap" Height="30" Margin="35,246,396,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtFrom" TextWrapping="Wrap" Height="30" Margin="35,246,396,0" VerticalAlignment="Top"/>
                 <Button x:Name="btnFromPath" Content="Browse Path" HorizontalAlignment="Left" Margin="266,247,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment"/>
                 <Label x:Name="label3_Copy" BorderThickness="0" Background="Transparent" Content="To" HorizontalAlignment="Left" Margin="35,293,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtTo" Text="TextBox" TextWrapping="Wrap" Height="30" Margin="35,328,396,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtTo" TextWrapping="Wrap" Height="30" Margin="35,328,396,0" VerticalAlignment="Top"/>
                 <Button x:Name="btnToPath" Content="Browse Path" HorizontalAlignment="Left" Margin="266,329,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label2_Copy" BorderThickness="0" Background="Transparent" Content="Last Saved:" HorizontalAlignment="Left" Margin="35,381,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="lblSavedDate" BorderThickness="0" Background="Transparent" Content="Date Saved" HorizontalAlignment="Left" Margin="118,381,0,0" VerticalAlignment="Top"/>

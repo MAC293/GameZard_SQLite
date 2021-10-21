@@ -38,7 +38,7 @@
         
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
             <Grid Height="244">
-                <hc:TextBox x:Name="txtAddRemoveGame" Text="TextBox" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
+                <hc:TextBox x:Name="txtAddRemoveGame" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
                 <Button Name="btnAddGame" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="29">
                     <Button.Background>
                         <ImageBrush ImageSource="/Add Game.png"/>
@@ -91,10 +91,10 @@
             <RadioButton x:Name="rbManually" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top"/>
             <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label1_Copy1" Content="From" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,118,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <TextBox x:Name="txtFrom" Margin="301,150,110,523" Text="TextBox" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
+            <TextBox x:Name="txtFrom" Margin="301,150,110,523" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
             <Button x:Name="btnFromPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,150,0,0" VerticalAlignment="Top" Height="40"/>
             <Label x:Name="label1_Copy2" Content="To" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,229,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <TextBox x:Name="txtTo" Margin="301,261,110,411" Text="TextBox" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
+            <TextBox x:Name="txtTo" Margin="301,261,110,411" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
             <Button x:Name="btnToPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,261,0,0" VerticalAlignment="Top" Height="41"/>
             <Label x:Name="label1_Copy3" Content="Last Saved:" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="303,354,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label x:Name="lblSavedDate" Content="Saved Date" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="390,354,0,0" VerticalAlignment="Top" FontSize="15"/>
