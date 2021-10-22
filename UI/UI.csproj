@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Add Game.png" />
+    <None Remove="Back-Up.ico" />
     <None Remove="Cemu.ico" />
     <None Remove="Citra.ico" />
     <None Remove="Delete Game.png" />
@@ -20,6 +21,7 @@
     <None Remove="GameZard.ico" />
     <None Remove="GameZard.png" />
     <None Remove="PCSX2.ico" />
+    <None Remove="PC_Black.ico" />
     <None Remove="PPSSPP.ico" />
     <None Remove="SNES9x.ico" />
     <None Remove="VisualBoyAdvance.ico" />
@@ -41,6 +43,7 @@
 
   <ItemGroup>
     <Resource Include="Add Game.png" />
+    <Resource Include="Back-Up.ico" />
     <Resource Include="Cemu.ico" />
     <Resource Include="Citra.ico" />
     <Resource Include="Delete Game.png" />
@@ -53,6 +56,7 @@
     <Resource Include="GameZard.ico" />
     <Resource Include="GameZard.png" />
     <Resource Include="PCSX2.ico" />
+    <Resource Include="PC_Black.ico" />
     <Resource Include="PPSSPP.ico" />
     <Resource Include="SNES9x.ico" />
     <Resource Include="VisualBoyAdvance.ico" />
