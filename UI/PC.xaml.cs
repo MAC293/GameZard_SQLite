@@ -30,5 +30,36 @@ namespace UI
             IconHelper.RemoveIcon(this);
         }
 
+        private void btnAddGame_Click(object sender, RoutedEventArgs e)
+        {
+            Game newGame = new Game();
+
+            newGame.Name = txtAddRemoveGame.Text;
+
+            do
+            {
+                newGame.Create(GenerateID());
+
+            } while (!newGame.Create(GenerateID()));
+
+            lbGames.Items.Add(newGame.Name);
+
+        }
+
+        public String GenerateID()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var stringChars = new char[3];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            return finalString;
+        }
     }
 }

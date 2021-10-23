@@ -39,7 +39,7 @@
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
             <Grid Height="244">
                 <hc:TextBox x:Name="txtAddRemoveGame" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
-                <Button Name="btnAddGame" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="29">
+                <Button Name="btnAddGame" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="29" Click="btnAddGame_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="/Add Game.png"/>
                     </Button.Background>
