@@ -43,6 +43,8 @@ namespace UI
             } while (!newGame.Create(GenerateID()));
 
             lbGames.Items.Add(newGame.Name);
+            
+            txtAddRemoveGame.Text = String.Empty;
 
         }
 

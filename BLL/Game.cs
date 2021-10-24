@@ -44,24 +44,31 @@ namespace BLL
             {
                 using (GameZardContext context = new GameZardContext())
                 {
-                    var videogameDAL = context.Videogames.FirstOrDefault(game =>
-                        game.Id == id);
-
-                    if (videogameDAL == null)
+                    using (var dbContextTransaction = context.Database.BeginTransaction())
                     {
-                        videogameDAL = new Videogame();
 
-                        videogameDAL.Id = id;
-                        videogameDAL.Name = Name;
+                        var videogameDAL = context.Videogames.FirstOrDefault(game =>
+                            game.Id == id);
 
-                        context.Videogames.Add(videogameDAL);
+                        if (videogameDAL == null)
+                        {
+                            videogameDAL = new Videogame();
 
-                        context.SaveChanges();
+                            videogameDAL.Id = id;
+                            videogameDAL.Name = Name;
 
-                        return true;
+                            context.Videogames.Add(videogameDAL);
+
+                            context.SaveChanges();
+                            dbContextTransaction.Commit();
+
+                            return true;
+                        }
+
+                        return false;
                     }
 
-                    return false;
+
 
                 }
             }
