@@ -128,5 +128,17 @@ namespace UI
             //lbGames.Items.Remove(lbGames.SelectedItem);
             //lbGames.Items.Remove(lbGames.Items[lbGames.SelectedIndex]);
         }
+
+        private void lbGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lblGameName.Content = lbGames.SelectedItem.ToString();
+
+            
+        }
+
+        private void btnChangeCover_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

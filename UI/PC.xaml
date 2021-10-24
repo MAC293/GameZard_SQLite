@@ -49,7 +49,7 @@
                         <ImageBrush ImageSource="/Delete Game.png"/>
                     </Button.Background>
                 </Button>
-                <ListBox x:Name="lbGames" Height="199" Margin="10,45,46,0" VerticalAlignment="Top"/>
+                <ListBox x:Name="lbGames" Height="199" Margin="10,45,46,0" VerticalAlignment="Top" SelectionChanged="lbGames_SelectionChanged"/>
             </Grid>
 
         </StackPanel>
@@ -73,7 +73,7 @@
 
         <Grid Grid.Column="1" Grid.Row="1" Background="Red">
             <Image x:Name="imgGameCover" Stretch="Fill" Source="/Game Cover Example.png" Margin="20,20,536,376" Width="252" Height="356" />
-            <Button x:Name="btnChangeCover" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30">
+            <Button x:Name="btnChangeCover" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30" Click="btnChangeCover_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="-1"/>

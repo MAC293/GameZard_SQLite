@@ -13,3 +13,4 @@ E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\B
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\ref\BLL.dll
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.pdb
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\BLL\obj\Debug\net5.0-windows\BLL.csproj.CopyComplete
