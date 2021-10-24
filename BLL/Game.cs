@@ -14,10 +14,11 @@ namespace BLL
         private String _ID;
         private String _Name;
         private Byte[] _Cover;
+        private List<String> _Games;
 
         public Game()
         {
-
+            Games = new List<String>();
         }
 
         public String ID
@@ -38,6 +39,12 @@ namespace BLL
             set { _Cover = value; }
         }
 
+        public List<String> Games
+        {
+            get { return _Games; }
+            set { _Games = value; }
+        }
+
         public Boolean Create(String id)
         {
             try
@@ -50,7 +57,7 @@ namespace BLL
                         var videogameDAL = context.Videogames.FirstOrDefault(game =>
                             game.Id == id);
 
-                        MessageBox.Show("ID, Game Class: " + id);
+                        //MessageBox.Show("ID, Game Class: " + id);
 
                         if (videogameDAL == null)
                         {
@@ -95,20 +102,42 @@ namespace BLL
             return finalString;
         }
 
-        public Boolean CheckID(String id)
+        public void RetrieveGames()
         {
             try
             {
                 using (GameZardContext context = new GameZardContext())
                 {
-                    var gameIDDAL = context.Videogames.FirstOrDefault(game => game.Id == id);
-
-                    if (gameIDDAL == null)
+                    if (!IsEmpty())
                     {
-                        return true;
-                    }
+                        var gameDAL = context.Videogames.Select((game =>
+                            new { game.Id, game.Name, game.Cover})).ToList();
 
-                    return false;
+                        for (int i = 0; i < gameDAL.Count(); i++)
+                        {
+                            String name = gameDAL.ElementAt(i).Name;
+                            Games.Add(name);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        public Boolean IsEmpty()
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    if (context.Videogames.Any())
+                    {
+                        return false;
+                    }
                 }
             }
             catch (Exception e)
@@ -116,53 +145,73 @@ namespace BLL
                 MessageBox.Show(e.Message);
             }
 
-            return false;
+            return true;
         }
 
-        public Boolean Connecting()
-        {
-            try
-            {
-                using (GameZardContext context = new GameZardContext())
-                {
+        //public Boolean CheckID(String id)
+        //{
+        //    try
+        //    {
+        //        using (GamZardContext context = new GameZardContext())
+        //        {
+        //            var gameIDDAL = context.Videogames.FirstOrDefault(game => game.Id == id);
 
-                    //var emulatorDAL = context.Emulators.Find("");
-                    var emulatorDAL = context.Emulators.FirstOrDefault(emu => emu.Name == "" &&
-                                                                              emu.Console == "");
+        //            if (gameIDDAL == null)
+        //            {
+        //                return true;
+        //            }
 
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
 
-                    if (emulatorDAL == null)
-                    {
-                        emulatorDAL = new Emulator();
+        //    return false;
+        //}
 
-                        emulatorDAL.Name = "Test";
-                        emulatorDAL.Console = "Test";
+        //public Boolean Connecting()
+        //{
+        //    try
+        //    {
+        //        using (GameZardContext context = new GameZardContext())
+        //        {
 
-                        context.Emulators.Add(emulatorDAL);
+        //            //var emulatorDAL = context.Emulators.Find("");
+        //            var emulatorDAL = context.Emulators.FirstOrDefault(emu => emu.Name == "" &&
+        //                                                                      emu.Console == "");
 
-                        context.SaveChanges();
+        //            if (emulatorDAL == null)
+        //            {
+        //                emulatorDAL = new Emulator();
 
-                        return true;
+        //                emulatorDAL.Name = "Test";
+        //                emulatorDAL.Console = "Test";
 
-                    }
+        //                context.Emulators.Add(emulatorDAL);
 
-                    //if (emulatorDAL.Name == "Test" && emulatorDAL.Console == "Test")
-                    //{
-                    //    return true;
-                    //}
+        //                context.SaveChanges();
 
-                    return false;
+        //                return true;
+        //            }
 
-                }
-            }
-            catch (Exception ex)
-            {
+        //            //if (emulatorDAL.Name == "Test" && emulatorDAL.Console == "Test")
+        //            //{
+        //            //    return true;
+        //            //}
 
-                //MessageBox.Show("Exception: " + ex.InnerException.Source);
-                MessageBox.Show("Exception: " + ex);
-            }
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    { 
+        //        //MessageBox.Show("Exception: " + ex.InnerException.Source);
+        //        MessageBox.Show("Exception: " + ex);
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
     }
 }

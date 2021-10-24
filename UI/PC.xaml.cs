@@ -20,10 +20,34 @@ namespace UI
     /// </summary>
     public partial class PC : Window
     {
+        private Game _Game;
         public PC()
         {
             InitializeComponent();
+
+            Game = new Game();
+            //lbGames.Items.Add(Game.Games);
+            Game.RetrieveGames();
+
+            if (Game.Games != null)
+            {
+                if (Game.Games.Count > 0)
+                {
+                    foreach (var game in Game.Games)
+                    {
+                        lbGames.Items.Add(game);
+                    }
+                }
+            }
+
         }
+
+        public Game Game
+        {
+            get { return _Game; }
+            set { _Game = value; }
+        }
+
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -48,7 +72,7 @@ namespace UI
             } while (!flag);
 
             lbGames.Items.Add(newGame.Name);
-            
+
             txtAddRemoveGame.Text = String.Empty;
 
         }
@@ -68,5 +92,7 @@ namespace UI
 
             return finalString;
         }
+
+
     }
 }
