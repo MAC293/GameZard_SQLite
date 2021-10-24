@@ -20,7 +20,7 @@
 
 
         <!--Logo-->
-        
+
         <StackPanel Grid.Column="0" Grid.Row="0" Background="Gold">
             <Grid>
                 <Label x:Name="label" Content="PC" Margin="0,10,0,0" Background="Transparent" VerticalAlignment="Top" d:LayoutOverrides="LeftPosition, RightPosition"/>
@@ -31,11 +31,11 @@
                 </Button>
             </Grid>
         </StackPanel>
-        
+
         <!--Logo-->
 
         <!--List-->
-        
+
         <StackPanel Grid.Column="0" Grid.Row="1" Background="LightBlue">
             <Grid Height="244">
                 <hc:TextBox x:Name="txtAddRemoveGame" TextWrapping="Wrap" Height="30" Margin="10,10,46,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
@@ -44,33 +44,33 @@
                         <ImageBrush ImageSource="/Add Game.png"/>
                     </Button.Background>
                 </Button>
-                <Button Name="btnRemoveGame" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="28">
+                <Button Name="btnRemoveGame" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" BorderThickness="0" Width="28" Click="btnRemoveGame_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="/Delete Game.png"/>
                     </Button.Background>
                 </Button>
-                <ListBox x:Name="lbGames" Height="118" Margin="10,45,46,0" VerticalAlignment="Top"/>
+                <ListBox x:Name="lbGames" Height="199" Margin="10,45,46,0" VerticalAlignment="Top"/>
             </Grid>
 
         </StackPanel>
-        
+
         <!--List-->
 
         <!--Options-->
-        
+
         <StackPanel Grid.Column="1" Grid.Row="0" Background="Orange">
             <Grid>
                 <Button x:Name="btnRemoveData" Content="- Delete Savedata" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" d:LayoutOverrides="Height"/>
             </Grid>
         </StackPanel>
-        
+
         <!--Options-->
 
         <!--Game-->
         <!--<StackPanel Grid.Column="1" Grid.Row="1" Background="Purple">
           
         </StackPanel>-->
-        
+
         <Grid Grid.Column="1" Grid.Row="1" Background="Red">
             <Image x:Name="imgGameCover" Stretch="Fill" Source="/Game Cover Example.png" Margin="20,20,536,376" Width="252" Height="356" />
             <Button x:Name="btnChangeCover" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30">

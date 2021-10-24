@@ -84,6 +84,29 @@ namespace BLL
             }
 
             return false;
+
+        }
+
+        public void Delete(String name)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    {
+                        var gameDAL = context.Videogames.FirstOrDefault(game => game.Name == name);
+
+                        context.Remove(gameDAL);
+
+                        context.SaveChanges();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
         }
 
         public String GenerateID()
@@ -111,7 +134,7 @@ namespace BLL
                     if (!IsEmpty())
                     {
                         var gameDAL = context.Videogames.Select((game =>
-                            new { game.Id, game.Name, game.Cover})).ToList();
+                            new { game.Id, game.Name, game.Cover })).ToList();
 
                         for (int i = 0; i < gameDAL.Count(); i++)
                         {

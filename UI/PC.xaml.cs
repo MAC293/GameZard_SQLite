@@ -29,17 +29,35 @@ namespace UI
             //lbGames.Items.Add(Game.Games);
             Game.RetrieveGames();
 
-            if (Game.Games != null)
+            DisplayGames(Game);
+
+            //if (Game.Games != null)
+            //{
+            //    if (Game.Games.Count > 0)
+            //    {
+            //        foreach (var game in Game.Games)
+            //        {
+            //            lbGames.Items.Add(game);
+            //        }
+            //    }
+            //}
+
+        }
+
+        public void DisplayGames(Game videogame)
+        {
+            if (videogame.Games != null)
             {
-                if (Game.Games.Count > 0)
+                if (videogame.Games.Count > 0)
                 {
                     foreach (var game in Game.Games)
                     {
                         lbGames.Items.Add(game);
                     }
+
+                    //lbGames.ItemsSource = Game.Games;
                 }
             }
-
         }
 
         public Game Game
@@ -56,25 +74,31 @@ namespace UI
 
         private void btnAddGame_Click(object sender, RoutedEventArgs e)
         {
-            Game newGame = new Game();
-
-            newGame.Name = txtAddRemoveGame.Text;
-
-            Boolean flag = false;
-
-            do
+            if (txtAddRemoveGame.Text == String.Empty)
             {
-                if (newGame.Create(GenerateID()))
+                MessageBox.Show("Field can't be empty!");
+            }
+            else
+            {
+                Game newGame = new Game();
+
+                newGame.Name = txtAddRemoveGame.Text;
+
+                Boolean flag = false;
+
+                do
                 {
-                    flag = true;
-                }
+                    if (newGame.Create(GenerateID()))
+                    {
+                        flag = true;
+                    }
 
-            } while (!flag);
+                } while (!flag);
 
-            lbGames.Items.Add(newGame.Name);
+                lbGames.Items.Add(newGame.Name);
 
-            txtAddRemoveGame.Text = String.Empty;
-
+                txtAddRemoveGame.Text = String.Empty;
+            }
         }
 
         public String GenerateID()
@@ -93,6 +117,16 @@ namespace UI
             return finalString;
         }
 
+        private void btnRemoveGame_Click(object sender, RoutedEventArgs e)
+        {
+            String delete = lbGames.SelectedItem.ToString();
+            //lbGames.DataContext = this;
+            lbGames.Items.Remove(lbGames.Items[lbGames.SelectedIndex]);
 
+            Game.Delete(delete);
+
+            //lbGames.Items.Remove(lbGames.SelectedItem);
+            //lbGames.Items.Remove(lbGames.Items[lbGames.SelectedIndex]);
+        }
     }
 }
