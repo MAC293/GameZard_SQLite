@@ -50,6 +50,8 @@ namespace BLL
                         var videogameDAL = context.Videogames.FirstOrDefault(game =>
                             game.Id == id);
 
+                        MessageBox.Show("ID, Game Class: " + id);
+
                         if (videogameDAL == null)
                         {
                             videogameDAL = new Videogame();
@@ -67,9 +69,6 @@ namespace BLL
 
                         return false;
                     }
-
-
-
                 }
             }
             catch (Exception ex)

@@ -36,11 +36,16 @@ namespace UI
 
             newGame.Name = txtAddRemoveGame.Text;
 
+            Boolean flag = false;
+
             do
             {
-                newGame.Create(GenerateID());
+                if (newGame.Create(GenerateID()))
+                {
+                    flag = true;
+                }
 
-            } while (!newGame.Create(GenerateID()));
+            } while (!flag);
 
             lbGames.Items.Add(newGame.Name);
             
