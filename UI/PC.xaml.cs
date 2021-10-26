@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,11 +9,16 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
+//using System.IO;
+//using System.Drawing;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLL;
+//using System.Drawing.Image
+using MessageBox = System.Windows.MessageBox;
 
 namespace UI
 {
@@ -30,6 +37,13 @@ namespace UI
             Game.RetrieveGames();
 
             DisplayGames(Game);
+
+            lbGames.SelectedIndex = 0;
+
+
+
+
+            //MessageBox.Show(lbGames.SelectedItem.ToString());
 
             //if (Game.Games != null)
             //{
@@ -120,7 +134,6 @@ namespace UI
         private void btnRemoveGame_Click(object sender, RoutedEventArgs e)
         {
             String delete = lbGames.SelectedItem.ToString();
-            //lbGames.DataContext = this;
             lbGames.Items.Remove(lbGames.Items[lbGames.SelectedIndex]);
 
             Game.Delete(delete);
@@ -133,12 +146,45 @@ namespace UI
         {
             lblGameName.Content = lbGames.SelectedItem.ToString();
 
-            
+
         }
 
         private void btnChangeCover_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openedFile = new OpenFileDialog();
 
+            openedFile.Filter = "Image Files(*.jpg; *.png;)|*.jpg; *.png;";
+            openedFile.Title = "Select Cover Image";
+            
+            if (openedFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+            else
+            {
+                imgGameCover.Source = new BitmapImage(new Uri(openedFile.FileName));
+
+                byte[] buffer = File.ReadAllBytes(openedFile.FileName);
+
+                Game.Cover = buffer;
+
+
+                if (Game.Cover != null)
+                {
+                    MessageBox.Show("Game.Cover != null");
+                }
+
+            }
+        }
+
+        private byte[] ImageToByte(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                
+                return ms.ToArray();
+            }
         }
     }
 }

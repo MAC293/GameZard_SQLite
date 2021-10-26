@@ -11,6 +11,7 @@
     <None Remove="Back-Up.ico" />
     <None Remove="Cemu.ico" />
     <None Remove="Citra.ico" />
+    <None Remove="Default Image.png" />
     <None Remove="Delete Game.png" />
     <None Remove="Dolphin.ico" />
     <None Remove="Edit.ico" />
@@ -46,12 +47,12 @@
     <Resource Include="Back-Up.ico" />
     <Resource Include="Cemu.ico" />
     <Resource Include="Citra.ico" />
+    <Resource Include="Default Image.png" />
     <Resource Include="Delete Game.png" />
     <Resource Include="Dolphin.ico" />
     <Resource Include="Edit.ico" />
     <Resource Include="Edit.png" />
     <Resource Include="ePSXe.ico" />
-    <Resource Include="Game Cover Example.png" />
     <Resource Include="Gamepad Example.ico" />
     <Resource Include="GameZard.ico" />
     <Resource Include="GameZard.png" />

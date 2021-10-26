@@ -27,6 +27,8 @@ namespace DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlite("Data Source=..\\DAL\\GameZard.db;");
+                //optionsBuilder.UseSqlite("Data Source=..\..\..\DAL\GameZard.db;");
+                //optionsBuilder.UseSqlite("Data Source=GameZard.db;");
                 optionsBuilder.UseSqlite("Data Source=E:\\Projects\\IT\\GameZard\\Solutions\\GameZard_SQLite\\DAL\\GameZard.db;");
             }
         }

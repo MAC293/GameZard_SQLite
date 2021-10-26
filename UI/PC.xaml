@@ -72,7 +72,7 @@
         </StackPanel>-->
 
         <Grid Grid.Column="1" Grid.Row="1" Background="Red">
-            <Image x:Name="imgGameCover" Stretch="Fill" Source="/Game Cover Example.png" Margin="20,20,536,376" Width="252" Height="356" />
+            <Image x:Name="imgGameCover" Stretch="Fill" Source="/Default Image.png" Margin="20,20,536,376" Width="252" Height="356" />
             <Button x:Name="btnChangeCover" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30" Click="btnChangeCover_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -82,13 +82,14 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Button.RenderTransform>
+
                 <Button.Background>
-                    <ImageBrush ImageSource="/Edit.png" />
+                    <ImageBrush ImageSource="/Edit.ico" />
                 </Button.Background>
             </Button>
             <Label x:Name="lblGameName" Content="Label" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,26,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label x:Name="label1_Copy" Content="Back-Up" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,70,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <RadioButton x:Name="rbManually" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rbManually" IsChecked="True" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top"/>
             <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label1_Copy1" Content="From" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,118,0,0" VerticalAlignment="Top" FontSize="15"/>
             <TextBox x:Name="txtFrom" Margin="301,150,110,523" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
