@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BLL;
+using ListBox = System.Windows.Controls.ListBox;
 //using System.Drawing.Image
 using MessageBox = System.Windows.MessageBox;
 
@@ -28,6 +29,7 @@ namespace UI
     public partial class PC : Window
     {
         private Game _Game;
+        //private ListBox _GameList; 
         public PC()
         {
             InitializeComponent();
@@ -38,9 +40,7 @@ namespace UI
 
             DisplayGames(Game);
 
-            lbGames.SelectedIndex = 0;
-
-
+            Start();
 
 
             //MessageBox.Show(lbGames.SelectedItem.ToString());
@@ -74,12 +74,24 @@ namespace UI
             }
         }
 
+        public void Start()
+        {
+            lbGames.SelectedIndex = 0;
+
+            Game.Name = lbGames.SelectedIndex.ToString();
+        }
+
         public Game Game
         {
             get { return _Game; }
             set { _Game = value; }
         }
 
+        //public ListBox GameList
+        //{
+        //    get { return _GameList; }
+        //    set { _GameList = value; }
+        //}
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -145,7 +157,7 @@ namespace UI
         private void lbGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             lblGameName.Content = lbGames.SelectedItem.ToString();
-
+            //lblGameName.Content = Game.Name;
 
         }
 
@@ -168,23 +180,71 @@ namespace UI
 
                 Game.Cover = buffer;
 
+               
 
-                if (Game.Cover != null)
-                {
-                    MessageBox.Show("Game.Cover != null");
-                }
+                //if (Game.Cover != null)
+                //{
+                //    MessageBox.Show("Game.Cover != null");
+                //}
 
             }
         }
 
-        private byte[] ImageToByte(System.Drawing.Image imageIn)
+        private void btnFromPath_Click(object sender, RoutedEventArgs e)
         {
-            using (var ms = new MemoryStream())
+
+        }
+
+        private void btnToPath_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private void BackUpMode(object sender, EventArgs e)
+        //{
+        //    if (rbAutomatically.IsChecked == true)
+        //    {
+        //        MessageBox.Show("rbAutomatically.IsChecked == true");
+        //    }
+        //    else if (rbManually.IsChecked == true)
+        //    {
+        //        MessageBox.Show("rbManually.IsChecked == true");
+        //    }
+        //}
+
+        private void rbManually_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rbAutomatically.IsChecked == true)
             {
-                imageIn.Save(ms, imageIn.RawFormat);
                 
-                return ms.ToArray();
+            }
+            else if (rbManually.IsChecked == true)
+            {
+                
             }
         }
+
+        private void rbManually_Checked_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("rbManually.IsChecked == true");
+        }
+
+        private void rbAutomatically_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("rbAutomatically.IsChecked == true");
+        }
+
+
+
+
+        //private byte[] ImageToByte(System.Drawing.Image imageIn)
+        //{
+        //    using (var ms = new MemoryStream())
+        //    {
+        //        imageIn.Save(ms, imageIn.RawFormat);
+
+        //        return ms.ToArray();
+        //    }
+        //}
     }
 }

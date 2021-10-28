@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:UI"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Height="812" Width="1079" SizeToContent="Manual" WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
+        Height="812" Width="1079" SizeToContent="Manual" WindowState="Normal" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+    <Window.Resources>
+        <System:String x:Key="BackUpMode">BackUpMode</System:String>
+    </Window.Resources>
     <Grid Margin="0,0,0,-6">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -72,7 +76,7 @@
         </StackPanel>-->
 
         <Grid Grid.Column="1" Grid.Row="1" Background="Red">
-            <Image x:Name="imgGameCover" Stretch="Fill" Source="/Default Image.png" Margin="20,20,536,376" Width="252" Height="356" />
+            <Image x:Name="imgGameCover" Stretch="Fill" Source="/Default Image.png" Margin="20,20,547,376" Height="356" />
             <Button x:Name="btnChangeCover" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" BorderThickness="0" RenderTransformOrigin="0.5,0.5" Width="24" Height="30" Click="btnChangeCover_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -89,14 +93,16 @@
             </Button>
             <Label x:Name="lblGameName" Content="Label" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,26,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label x:Name="label1_Copy" Content="Back-Up" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,70,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <RadioButton x:Name="rbManually" IsChecked="True" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top"/>
-            <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top"/>
+            <!--GroupName="rbGroup_CheckedChanged"-->
+            <RadioButton x:Name="rbManually" IsChecked="True" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top" Checked="rbManually_Checked_1"/>
+            <!--GroupName="rbGroup_CheckedChanged"-->
+            <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top" Checked="rbAutomatically_Checked"/>
             <Label x:Name="label1_Copy1" Content="From" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,118,0,0" VerticalAlignment="Top" FontSize="15"/>
             <TextBox x:Name="txtFrom" Margin="301,150,110,523" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
-            <Button x:Name="btnFromPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,150,0,0" VerticalAlignment="Top" Height="40"/>
+            <Button x:Name="btnFromPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,150,0,0" VerticalAlignment="Top" Height="40" Click="btnFromPath_Click"/>
             <Label x:Name="label1_Copy2" Content="To" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,229,0,0" VerticalAlignment="Top" FontSize="15"/>
             <TextBox x:Name="txtTo" Margin="301,261,110,411" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment"/>
-            <Button x:Name="btnToPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,261,0,0" VerticalAlignment="Top" Height="41"/>
+            <Button x:Name="btnToPath" Content="Browse Path" HorizontalAlignment="Left" Margin="694,261,0,0" VerticalAlignment="Top" Height="41" Click="btnToPath_Click"/>
             <Label x:Name="label1_Copy3" Content="Last Saved:" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="303,354,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label x:Name="lblSavedDate" Content="Saved Date" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="390,354,0,0" VerticalAlignment="Top" FontSize="15"/>
 
