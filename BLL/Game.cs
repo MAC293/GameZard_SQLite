@@ -14,12 +14,12 @@ namespace BLL
         private String _ID;
         private String _Name;
         private Byte[] _Cover;
-        private List<String> _Games;
+        //private List<String> _Games;
         private SavedataGame _Savedata;
 
         public Game()
         {
-            Games = new List<String>();
+            //Games = new List<String>();
         }
 
         public String ID
@@ -40,11 +40,11 @@ namespace BLL
             set { _Cover = value; }
         }
 
-        public List<String> Games
-        {
-            get { return _Games; }
-            set { _Games = value; }
-        }
+        //public List<String> Games
+        //{
+        //    get { return _Games; }
+        //    set { _Games = value; }
+        //}
 
         public SavedataGame Savedata
         {
@@ -132,7 +132,7 @@ namespace BLL
             return finalString;
         }
 
-        public void RetrieveGames()
+        public void RetrieveGames(List<String> games)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace BLL
                         for (int i = 0; i < gameDAL.Count(); i++)
                         {
                             String name = gameDAL.ElementAt(i).Name;
-                            Games.Add(name);
+                            games.Add(name);
                         }
 
                     }

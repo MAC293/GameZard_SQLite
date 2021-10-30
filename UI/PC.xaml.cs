@@ -31,14 +31,15 @@ namespace UI
     public partial class PC : Window
     {
         private Game _Game;
-        //private ListBox _GameList; 
+        private List<String> _Games; 
         public PC()
         {
             InitializeComponent();
 
             Game = new Game();
+            Games = new List<String>();
             //lbGames.Items.Add(Game.Games);
-            Game.RetrieveGames();
+            Game.RetrieveGames(Games);
 
             DisplayGames(Game);
 
@@ -61,11 +62,11 @@ namespace UI
 
         public void DisplayGames(Game videogame)
         {
-            if (videogame.Games != null)
+            if (Games != null)
             {
-                if (videogame.Games.Count > 0)
+                if (Games.Count > 0)
                 {
-                    foreach (var game in Game.Games)
+                    foreach (var game in Games)
                     {
                         lbGames.Items.Add(game);
                     }
@@ -79,7 +80,7 @@ namespace UI
         {
             lbGames.SelectedIndex = 0;
 
-            Game.Name = lbGames.SelectedIndex.ToString();
+            //Game.Name = lbGames.SelectedIndex.ToString();
         }
 
         public Game Game
@@ -88,11 +89,11 @@ namespace UI
             set { _Game = value; }
         }
 
-        //public ListBox GameList
-        //{
-        //    get { return _GameList; }
-        //    set { _GameList = value; }
-        //}
+        public List<String> Games
+        {
+            get { return _Games; }
+            set { _Games = value; }
+        }
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -157,7 +158,17 @@ namespace UI
 
         private void lbGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lblGameName.Content = lbGames.SelectedItem.ToString();
+            if (lbGames.SelectedItem != null)
+            {
+                lblGameName.Content = lbGames.SelectedItem.ToString();
+            }
+            else
+            {
+                lblGameName.Content = String.Empty;
+                //lbGames.UnselectAll();
+            }
+
+            
             //lblGameName.Content = Game.Name;
 
         }
@@ -226,17 +237,17 @@ namespace UI
         }
 
 
-        private void rbManually_Checked(object sender, RoutedEventArgs e)
-        {
-            if (rbAutomatically.IsChecked == true)
-            {
+        //private void rbManually_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    if (rbAutomatically.IsChecked == true)
+        //    {
                 
-            }
-            else if (rbManually.IsChecked == true)
-            {
+        //    }
+        //    else if (rbManually.IsChecked == true)
+        //    {
                 
-            }
-        }
+        //    }
+        //}
 
         private void rbManually_Checked_1(object sender, RoutedEventArgs e)
         {
