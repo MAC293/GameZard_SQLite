@@ -168,8 +168,6 @@ namespace UI
                 //lbGames.UnselectAll();
             }
 
-            
-            //lblGameName.Content = Game.Name;
 
         }
 
