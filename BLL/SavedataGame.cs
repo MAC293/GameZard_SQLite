@@ -15,7 +15,7 @@ namespace BLL
         private String _ToPath;
         private String _BackUpMode;
         private String _LastSaved;
-        private String _Game;
+        //private String _Game;
 
         public SavedataGame()
         {
@@ -52,13 +52,13 @@ namespace BLL
             set { _LastSaved = value; }
         }
 
-        public String Game
-        {
-            get { return _Game; }
-            set { _Game = value; }
-        }
+        //public String Game
+        //{
+        //    get { return _Game; }
+        //    set { _Game = value; }
+        //}
 
-        public Boolean Create(String id, String game)
+        public Boolean Create()
         {
             try
             {
@@ -68,7 +68,7 @@ namespace BLL
                     {
 
                         var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
-                            save.Id == id);
+                            save.Id == ID);
 
                         //MessageBox.Show("ID, Game Class: " + id);
 
@@ -76,7 +76,11 @@ namespace BLL
                         {
                             saveDAL = new SavedataPc();
 
-                            saveDAL.Id = id;
+                            saveDAL.Id = ID;
+                            saveDAL.FromPath = FromPath;
+                            saveDAL.ToPath = ToPath;
+                            saveDAL.BackUpMode = BackUpMode;
+                            saveDAL.LastSaved = LastSaved;
 
                             context.SavedataPcs.Add(saveDAL);
 
@@ -98,21 +102,44 @@ namespace BLL
             return false;
         }
 
-        public String GenerateID()
+        public void Delete(String gameID)
         {
-            var chars = "0123456789";
-            var stringChars = new char[3];
-            var random = new Random();
-
-            for (int i = 0; i < stringChars.Length; i++)
+            try
             {
-                stringChars[i] = chars[random.Next(chars.Length)];
+                using (GameZardContext context = new GameZardContext())
+                {
+                    {
+                        var saveDAL = context.SavedataPcs.FirstOrDefault(save => save.Id == gameID);
+                        
+                        context.Remove(saveDAL);
+
+                        context.SaveChanges();
+                    }
+
+                }
             }
-
-            var finalString = new String(stringChars);
-
-            return finalString;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
         }
+
+
+        //public String GenerateID()
+        //{
+        //    var chars = "0123456789";
+        //    var stringChars = new char[3];
+        //    var random = new Random();
+
+        //    for (int i = 0; i < stringChars.Length; i++)
+        //    {
+        //        stringChars[i] = chars[random.Next(chars.Length)];
+        //    }
+
+        //    var finalString = new String(stringChars);
+
+        //    return finalString;
+        //}
 
     }
 }

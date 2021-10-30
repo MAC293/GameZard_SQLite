@@ -108,22 +108,48 @@ namespace UI
             }
             else
             {
-                Game newGame = new Game();
+                //Game newGame = new Game();
 
-                newGame.Name = txtAddRemoveGame.Text;
+                Game = new Game();
+
+                Game.Name = txtAddRemoveGame.Text;
+
+                //Boolean flag = false;
+
+                //do
+                //{
+                //    if (Game.Create(GenerateID()))
+                //    {
+                //        flag = true;
+                //    }
+
+                //} while (!flag);
+
+                
 
                 Boolean flag = false;
 
                 do
                 {
-                    if (newGame.Create(GenerateID()))
-                    {
+                    
+                    if (Game.CheckGame(GenerateID()))
+                    { 
                         flag = true;
                     }
 
                 } while (!flag);
+                
+                lbGames.Items.Add(Game.Name);
+                
+                Game.Savedata.ID = Game.ID;
+                Game.Savedata.FromPath = String.Empty;
+                Game.Savedata.ToPath = String.Empty;
+                Game.Savedata.BackUpMode = String.Empty;
+                Game.Savedata.LastSaved = String.Empty;
 
-                lbGames.Items.Add(newGame.Name);
+                Game.Create();
+                Game.Savedata.Create();
+
 
                 txtAddRemoveGame.Text = String.Empty;
             }
@@ -149,6 +175,11 @@ namespace UI
         {
             String delete = lbGames.SelectedItem.ToString();
             lbGames.Items.Remove(lbGames.Items[lbGames.SelectedIndex]);
+
+            
+            String saveDelete = Game.SendID(delete);
+
+            Game.Savedata.Delete(saveDelete);
 
             Game.Delete(delete);
 

@@ -4,6 +4,9 @@ DELETE FROM Videogame;
 SELECT * FROM Emulator;
 DELETE FROM Emulator;
 
+SELECT * FROM SavedataPC;
+DELETE FROM SavedataPC;
+
 INSERT INTO Emulator (Name, Console)
 VALUES ('Visual Boy Advance', 'Game Boy Advance');
 INSERT INTO Emulator (Name, Console)

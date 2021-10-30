@@ -19,7 +19,7 @@ namespace BLL
 
         public Game()
         {
-            //Games = new List<String>();
+            Savedata = new SavedataGame();
         }
 
         public String ID
@@ -52,7 +52,7 @@ namespace BLL
             set { _Savedata = value; }
         }
 
-        public Boolean Create(String id)
+        public void Create()
         {
             try
             {
@@ -62,15 +62,17 @@ namespace BLL
                     {
 
                         var videogameDAL = context.Videogames.FirstOrDefault(game =>
-                            game.Id == id);
+                            game.Id == ID);
 
                         //MessageBox.Show("ID, Game Class: " + id);
 
                         if (videogameDAL == null)
                         {
+                            //Savedata.ID = id;
+
                             videogameDAL = new Videogame();
 
-                            videogameDAL.Id = id;
+                            videogameDAL.Id = ID;
                             videogameDAL.Name = Name;
 
                             context.Videogames.Add(videogameDAL);
@@ -78,10 +80,10 @@ namespace BLL
                             context.SaveChanges();
                             dbContextTransaction.Commit();
 
-                            return true;
+                            //return true;
                         }
 
-                        return false;
+                        //return false;
                     }
                 }
             }
@@ -90,8 +92,34 @@ namespace BLL
                 MessageBox.Show("Exception: " + ex);
             }
 
-            return false;
+            //return false;
 
+        }
+
+        public Boolean CheckGame(String checkID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var videogameDAL = context.Videogames.FirstOrDefault(game =>
+                           game.Id == checkID);
+
+                    if (videogameDAL == null)
+                    {
+                        ID = checkID;
+                        return true;
+                    }
+
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+
+            return false;
         }
 
         public void Delete(String name)
@@ -176,6 +204,30 @@ namespace BLL
             }
 
             return true;
+        }
+
+        public String SendID(String name)
+        {
+            String id = String.Empty;
+
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var gameDAL = context.Videogames.FirstOrDefault(game => game.Name == name);
+
+                    if (gameDAL != null)
+                    {
+                        id = gameDAL.Id;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+
+            return id;
         }
 
         //public Boolean CheckID(String id)
