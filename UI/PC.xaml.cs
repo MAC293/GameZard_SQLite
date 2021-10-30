@@ -44,8 +44,6 @@ namespace UI
 
             Start();
 
-            //Tip();
-
             //MessageBox.Show(lbGames.SelectedItem.ToString());
 
             //if (Game.Games != null)
@@ -197,7 +195,7 @@ namespace UI
         {
             FolderBrowserDialog fromPath = new FolderBrowserDialog();
 
-            fromPath.Description = "Select Savedata Source Path";
+            //fromPath.Description = "Select Savedata Source Path";
             fromPath.ShowNewFolderButton = false;
             fromPath.RootFolder = Environment.SpecialFolder.MyComputer;
 
@@ -214,7 +212,7 @@ namespace UI
         {
             FolderBrowserDialog toPath = new FolderBrowserDialog();
 
-            toPath.Description = "Select Savedata Destination Path";
+            //toPath.Description = "Select Savedata Destination Path";
             toPath.ShowNewFolderButton = false;
             toPath.RootFolder = Environment.SpecialFolder.MyComputer;
 
@@ -227,11 +225,6 @@ namespace UI
             }
         }
 
-        private void Tip()
-        {
-            txtFrom.ToolTip = txtFrom.Text;
-            txtTo.ToolTip = txtTo.Text;
-        }
 
         private void rbManually_Checked(object sender, RoutedEventArgs e)
         {

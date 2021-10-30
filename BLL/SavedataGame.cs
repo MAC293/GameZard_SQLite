@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using DAL.Models;
 
 namespace BLL
 {
@@ -55,5 +57,62 @@ namespace BLL
             get { return _Game; }
             set { _Game = value; }
         }
+
+        public Boolean Create(String id, String game)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    using (var dbContextTransaction = context.Database.BeginTransaction())
+                    {
+
+                        var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == id);
+
+                        //MessageBox.Show("ID, Game Class: " + id);
+
+                        if (saveDAL == null)
+                        {
+                            saveDAL = new SavedataPc();
+
+                            saveDAL.Id = id;
+
+                            context.SavedataPcs.Add(saveDAL);
+
+                            context.SaveChanges();
+                            dbContextTransaction.Commit();
+
+                            return true;
+                        }
+
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+
+            return false;
+        }
+
+        public String GenerateID()
+        {
+            var chars = "0123456789";
+            var stringChars = new char[3];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+
+            return finalString;
+        }
+
     }
 }

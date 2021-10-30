@@ -15,6 +15,7 @@ namespace BLL
         private String _Name;
         private Byte[] _Cover;
         private List<String> _Games;
+        private SavedataGame _Savedata;
 
         public Game()
         {
@@ -43,6 +44,12 @@ namespace BLL
         {
             get { return _Games; }
             set { _Games = value; }
+        }
+
+        public SavedataGame Savedata
+        {
+            get { return _Savedata; }
+            set { _Savedata = value; }
         }
 
         public Boolean Create(String id)
@@ -111,7 +118,7 @@ namespace BLL
 
         public String GenerateID()
         {
-            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             var stringChars = new char[3];
             var random = new Random();
 
