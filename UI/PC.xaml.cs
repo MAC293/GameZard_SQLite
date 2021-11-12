@@ -22,6 +22,7 @@ using BLL;
 using ListBox = System.Windows.Controls.ListBox;
 //using System.Drawing.Image
 using MessageBox = System.Windows.MessageBox;
+//using System.Drawing.Image;
 
 namespace UI
 {
@@ -31,7 +32,7 @@ namespace UI
     public partial class PC : Window
     {
         private Game _Game;
-        private List<String> _Games; 
+        private List<String> _Games;
         public PC()
         {
             InitializeComponent();
@@ -129,16 +130,16 @@ namespace UI
 
                 do
                 {
-                    
+
                     if (Game.CheckGame(GenerateID()))
-                    { 
+                    {
                         flag = true;
                     }
 
                 } while (!flag);
-                
+
                 lbGames.Items.Add(Game.Name);
-                
+
                 Game.Savedata.ID = Game.ID;
                 Game.Savedata.FromPath = String.Empty;
                 Game.Savedata.ToPath = String.Empty;
@@ -174,7 +175,7 @@ namespace UI
             String delete = lbGames.SelectedItem.ToString();
             lbGames.Items.Remove(lbGames.Items[lbGames.SelectedIndex]);
 
-            
+
             String saveDelete = Game.SendID(delete);
 
             Game.Savedata.Delete(saveDelete);
@@ -191,9 +192,7 @@ namespace UI
             {
                 lblGameName.Content = lbGames.SelectedItem.ToString();
 
-                Game.DisplayCover(lbGames.SelectedItem.ToString());
-                imgGameCover.Source = LoadImage(Game.Cover);
-
+                ShowCover();
 
             }
             else
@@ -202,6 +201,19 @@ namespace UI
                 //lbGames.UnselectAll();
             }
 
+
+        }
+
+        public void ShowCover()
+        {
+            if (Game.DisplayCover(lbGames.SelectedItem.ToString()))
+            {
+                imgGameCover.Source = LoadImage(Game.Cover);
+            }
+            else
+            {
+                imgGameCover.Source = null;
+            }
 
         }
 
@@ -233,7 +245,7 @@ namespace UI
 
             openedFile.Filter = "Image Files(*.jpg; *.png;)|*.jpg; *.png;";
             openedFile.Title = "Select Cover Image";
-            
+
             if (openedFile.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 return;
@@ -254,7 +266,7 @@ namespace UI
                 Game.AddCover(lbGames.SelectedItem.ToString());
                 //MessageBox.Show(lbGames.SelectedItem.ToString());
 
-               
+
 
                 //if (Game.Cover != null)
                 //{
@@ -303,22 +315,22 @@ namespace UI
         //{
         //    if (rbAutomatically.IsChecked == true)
         //    {
-                
+
         //    }
         //    else if (rbManually.IsChecked == true)
         //    {
-                
+
         //    }
         //}
 
         private void rbManually_Checked_1(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void rbAutomatically_Checked(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 

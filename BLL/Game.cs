@@ -123,7 +123,7 @@ namespace BLL
             }
         }
 
-        public void DisplayCover(String gameName)
+        public Boolean DisplayCover(String gameName)
         {
             try
             {
@@ -132,14 +132,16 @@ namespace BLL
                     var gameDAL = context.Videogames.FirstOrDefault(game =>
                             game.Name == gameName);
 
-                    if (gameDAL != null)
+                    if (gameDAL != null && gameDAL.Cover != null)
                     {
-                        if (gameDAL.Cover != null)
-                        {
-                            Cover = gameDAL.Cover;
-                        }
-                        
-                        
+                        Cover = gameDAL.Cover;
+
+                        return true;
+
+                    }
+                    else if (gameDAL != null && gameDAL.Cover == null)
+                    {
+                        return false;
                     }
                 }
             }
@@ -148,7 +150,40 @@ namespace BLL
             {
                 MessageBox.Show("Exception: " + ex);
             }
+
+            return false;
         }
+
+        //public Boolean CheckNullImage(String gameName)
+        //{
+        //    try
+        //    {
+        //        using (GameZardContext context = new GameZardContext())
+        //        {
+        //            var gameDAL = context.Videogames.FirstOrDefault(game =>
+        //                    game.Name == gameName);
+
+        //            if (gameDAL != null)
+        //            {
+        //                if (gameDAL.Cover == null)
+        //                {
+        //                    return true;
+        //                }
+
+
+        //                return false;
+
+        //            }
+        //        }
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Exception: " + ex);
+        //    }
+
+        //    return false;
+        //}
 
         public Boolean CheckGame(String checkID)
         {
