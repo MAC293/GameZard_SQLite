@@ -1,6 +1,9 @@
 SELECT * FROM Videogame;
 DELETE FROM Videogame;
 
+SELECT * FROM Videogame
+WHERE Name = 'Art Of Rally';
+
 SELECT * FROM Emulator;
 DELETE FROM Emulator;
 

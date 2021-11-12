@@ -96,6 +96,60 @@ namespace BLL
 
         }
 
+        public void AddCover(String gameName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var gameDAL = context.Videogames.FirstOrDefault(game =>
+                            game.Name == gameName);
+
+                    if (gameDAL != null)
+                    {
+                        if (gameDAL.Cover == null)
+                        {
+                            gameDAL.Cover = Cover;
+                        }
+                        //context.Add(gameDAL);
+                        context.SaveChanges();
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void DisplayCover(String gameName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var gameDAL = context.Videogames.FirstOrDefault(game =>
+                            game.Name == gameName);
+
+                    if (gameDAL != null)
+                    {
+                        if (gameDAL.Cover != null)
+                        {
+                            Cover = gameDAL.Cover;
+                        }
+                        
+                        
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
         public Boolean CheckGame(String checkID)
         {
             try

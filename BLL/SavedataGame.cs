@@ -110,7 +110,7 @@ namespace BLL
                 {
                     {
                         var saveDAL = context.SavedataPcs.FirstOrDefault(save => save.Id == gameID);
-                        
+
                         context.Remove(saveDAL);
 
                         context.SaveChanges();

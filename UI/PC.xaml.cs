@@ -125,8 +125,6 @@ namespace UI
 
                 //} while (!flag);
 
-                
-
                 Boolean flag = false;
 
                 do
@@ -192,6 +190,11 @@ namespace UI
             if (lbGames.SelectedItem != null)
             {
                 lblGameName.Content = lbGames.SelectedItem.ToString();
+
+                Game.DisplayCover(lbGames.SelectedItem.ToString());
+                imgGameCover.Source = LoadImage(Game.Cover);
+
+
             }
             else
             {
@@ -200,6 +203,28 @@ namespace UI
             }
 
 
+        }
+
+        private BitmapImage LoadImage(byte[] imageData)
+        {
+            if (imageData == null || imageData.Length == 0) return null;
+
+            var image = new BitmapImage();
+
+            using (var mem = new MemoryStream(imageData))
+            {
+                mem.Position = 0;
+                image.BeginInit();
+                image.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.UriSource = null;
+                image.StreamSource = mem;
+                image.EndInit();
+            }
+
+            image.Freeze();
+
+            return image;
         }
 
         private void btnChangeCover_Click(object sender, RoutedEventArgs e)
@@ -220,6 +245,14 @@ namespace UI
                 byte[] buffer = File.ReadAllBytes(openedFile.FileName);
 
                 Game.Cover = buffer;
+
+                //if (Game.Cover != null)
+                //{
+                //    MessageBox.Show("Game.Cover != null");
+                //}
+
+                Game.AddCover(lbGames.SelectedItem.ToString());
+                //MessageBox.Show(lbGames.SelectedItem.ToString());
 
                
 
