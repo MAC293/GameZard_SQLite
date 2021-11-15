@@ -290,6 +290,12 @@ namespace UI
             {
                 String path = fromPath.SelectedPath;
                 txtFrom.Text = path;
+
+                String id = Game.SendID(lbGames.SelectedItem.ToString());
+                Game.Savedata.FromPath = path;
+                Game.Savedata.SaveFrom(id);
+
+                
             }
 
         }
@@ -307,6 +313,10 @@ namespace UI
             {
                 String path = toPath.SelectedPath;
                 txtTo.Text = path;
+
+                String id = Game.SendID(lbGames.SelectedItem.ToString());
+                Game.Savedata.ToPath = path;
+                Game.Savedata.SaveTo(id);
             }
         }
 

@@ -124,6 +124,49 @@ namespace BLL
             }
         }
 
+        public void SaveFrom(String gameID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == gameID);
+
+                    if (saveDAL != null)
+                    {
+                        saveDAL.FromPath = FromPath;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void SaveTo(String gameID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == gameID);
+
+                    if (saveDAL != null)
+                    {
+                        saveDAL.ToPath = ToPath;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
 
         //public String GenerateID()
         //{
