@@ -194,6 +194,13 @@ namespace UI
 
                 ShowCover();
 
+                Game.Savedata.LoadFrom(Game.SendID(lbGames.SelectedItem.ToString()));
+                txtFrom.Text = Game.Savedata.FromPath;
+
+                Game.Savedata.LoadTo(Game.SendID(lbGames.SelectedItem.ToString()));
+                txtTo.Text = Game.Savedata.ToPath;
+
+
             }
             else
             {

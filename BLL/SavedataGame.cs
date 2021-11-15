@@ -168,6 +168,48 @@ namespace BLL
             }
         }
 
+        public void LoadFrom(String gameID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == gameID);
+
+                    if (saveDAL != null)
+                    {
+                        FromPath = saveDAL.FromPath;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void LoadTo(String gameID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == gameID);
+
+                    if (saveDAL != null)
+                    {
+                        ToPath = saveDAL.ToPath;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
         //public String GenerateID()
         //{
         //    var chars = "0123456789";
