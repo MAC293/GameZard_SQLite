@@ -93,8 +93,8 @@
             </Button>
             <Label x:Name="lblGameName" Content="Label" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,26,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label x:Name="label1_Copy" Content="Back-Up" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,70,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <!--GroupName="rbGroup_CheckedChanged"-->
-            <RadioButton x:Name="rbManually" IsChecked="True" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top" Checked="rbManually_Checked_1"/>
+            <!--GroupName="rbGroup_CheckedChanged" IsChecked="True"-->
+            <RadioButton x:Name="rbManually" Content="Manually" HorizontalAlignment="Left" Margin="390,77,0,0" VerticalAlignment="Top" Checked="rbManually_Checked"/>
             <!--GroupName="rbGroup_CheckedChanged"-->
             <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="498,78,0,0" VerticalAlignment="Top" Checked="rbAutomatically_Checked"/>
             <Label x:Name="label1_Copy1" Content="From" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="293,118,0,0" VerticalAlignment="Top" FontSize="15"/>

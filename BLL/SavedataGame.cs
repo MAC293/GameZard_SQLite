@@ -201,6 +201,7 @@ namespace BLL
                     if (saveDAL != null)
                     {
                         ToPath = saveDAL.ToPath;
+                        
                     }
                 }
             }
@@ -209,6 +210,89 @@ namespace BLL
                 MessageBox.Show("Exception: " + ex);
             }
         }
+
+        public void SaveBackUp(String gameID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == gameID);
+
+                    if (saveDAL != null)
+                    {
+                        saveDAL.BackUpMode = BackUpMode;
+                        context.SaveChanges();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void LoadBackUp(String gameID)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataPcs.FirstOrDefault(save =>
+                            save.Id == gameID);
+
+                    if (saveDAL != null)
+                    {
+                        if (saveDAL.BackUpMode == null)
+                        {
+                            BackUpMode = String.Empty;
+                        }
+                        else
+                        {
+                            BackUpMode = saveDAL.BackUpMode;
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        //public Boolean CheckBackUp(String saveID)
+        //{
+        //    try
+        //    {
+        //        using (GameZardContext context = new GameZardContext())
+        //        {
+        //            var gameDAL = context.SavedataPcs.FirstOrDefault(save =>
+        //                    save.Id == saveID);
+
+        //            if (gameDAL != null && gameDAL.Cover != null)
+        //            {
+        //                Cover = gameDAL.Cover;
+
+        //                return true;
+
+        //            }
+        //            else if (gameDAL != null && gameDAL.Cover == null)
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Exception: " + ex);
+        //    }
+
+        //    return false;
+        //}
 
         //public String GenerateID()
         //{

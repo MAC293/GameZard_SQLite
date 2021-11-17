@@ -46,6 +46,8 @@ namespace UI
 
             Start();
 
+            //DisplayBackUp();
+
             //MessageBox.Show(lbGames.SelectedItem.ToString());
 
             //if (Game.Games != null)
@@ -200,7 +202,7 @@ namespace UI
                 Game.Savedata.LoadTo(Game.SendID(lbGames.SelectedItem.ToString()));
                 txtTo.Text = Game.Savedata.ToPath;
 
-
+                DisplayBackUp();
             }
             else
             {
@@ -340,17 +342,43 @@ namespace UI
         //    }
         //}
 
-        private void rbManually_Checked_1(object sender, RoutedEventArgs e)
+        private void rbManually_Checked(object sender, RoutedEventArgs e)
         {
+            if (rbManually.IsChecked == true)
+            {
+                Game.Savedata.BackUpMode = "Manually";
+                Game.Savedata.SaveBackUp(Game.SendID(lbGames.SelectedItem.ToString()));
+            }
 
         }
 
         private void rbAutomatically_Checked(object sender, RoutedEventArgs e)
         {
-
+            if (rbAutomatically.IsChecked == true)
+            {
+                Game.Savedata.BackUpMode = "Automatically";
+                Game.Savedata.SaveBackUp(Game.SendID(lbGames.SelectedItem.ToString()));
+            }
         }
 
+        public void DisplayBackUp()
+        {
+            Game.Savedata.LoadBackUp(Game.SendID(lbGames.SelectedItem.ToString()));
 
+            if (Game.Savedata.BackUpMode == "Manually")
+            {
+                rbManually.IsChecked = true;
+            }
+            else if (Game.Savedata.BackUpMode == "Automatically")
+            {
+                rbAutomatically.IsChecked = true;
+            }
+            else
+            {
+                rbManually.IsChecked = false;
+                rbAutomatically.IsChecked = false;
+            }
+        }
 
 
         //private byte[] ImageToByte(System.Drawing.Image imageIn)
