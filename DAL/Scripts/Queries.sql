@@ -10,6 +10,8 @@ DELETE FROM Emulator;
 SELECT * FROM SavedataPC;
 DELETE FROM SavedataPC;
 
+SELECT * FROM SavedataEmulator;
+
 INSERT INTO Emulator (Name, Console)
 VALUES ('Visual Boy Advance', 'Game Boy Advance');
 INSERT INTO Emulator (Name, Console)
@@ -30,3 +32,24 @@ INSERT INTO Emulator (Name, Console)
 VALUES ('SNES9x', 'SNES');
 INSERT INTO Emulator (Name, Console)
 VALUES ('YUZU', 'Switch');
+
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('Visual Boy Advance', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('PPSSPP', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('PCSX2', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('ePSXe', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('Dolphin(Wii)', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('Dolphin(GameCube)', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('Citra', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('Cemu', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('SNES9x', '', '', '', '');
+INSERT INTO SavedataEmulator (ID, FromPath, ToPath, BackUpMode, LastSaved)
+VALUES ('YUZU', '', '', '', '');

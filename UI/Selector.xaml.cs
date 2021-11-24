@@ -26,17 +26,17 @@ namespace UI
             //Checking();
         }
 
-        public void Checking()
-        {
-            if (emulator.Connecting())
-            {
-                MessageBox.Show("Connected");
-            }
-            else
-            {
-                MessageBox.Show("Couldn't Connect");
-            }
-        }
+        //public void Checking()
+        //{
+        //    if (emulator.Connecting())
+        //    {
+        //        MessageBox.Show("Connected");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Couldn't Connect");
+        //    }
+        //}
 
 
     }

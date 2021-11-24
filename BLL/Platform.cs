@@ -7,55 +7,67 @@ namespace BLL
 {
     public class Platform
     {
+        private String _Name;
+        private String _Console;
+        private SavedataEmulator _Savedata;
         public Platform()
         {
-
+            //Savedata = new SavedataEmulator();
         }
 
-        public Boolean Connecting()
+        public String Name
         {
-            try
-            {
-                using (GameZardContext context = new GameZardContext())
-                {
-
-                    //var emulatorDAL = context.Emulators.Find("");
-                    var emulatorDAL = context.Emulators.FirstOrDefault(emu => emu.Name == "" &&
-                                                                            emu.Console == "");
-
-                    
-                    if (emulatorDAL == null)
-                    {
-                        //emulatorDAL = new Emulator();
-
-                        //emulatorDAL.Name = "Test";
-                        //emulatorDAL.Console = "Test";
-
-                        //context.Emulators.Add(emulatorDAL);
-
-                        //context.SaveChanges();
-
-                        return true;
-
-                    }
-
-                    //if (emulatorDAL.Name == "Test" && emulatorDAL.Console == "Test")
-                    //{
-                    //    return true;
-                    //}
-
-                    return false;
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                //MessageBox.Show("Exception: " + ex.InnerException.Source);
-                MessageBox.Show("Exception: " + ex);
-            }
-
-            return false;
+            get { return _Name; }
+            set { _Name = value; }
         }
+
+        public String Console
+        {
+            get { return _Console; }
+            set { _Console = value; }
+        }
+
+        public SavedataEmulator Savedata
+        {
+            get { return _Savedata; }
+            set { _Savedata = value; }
+        }
+
+
+
+        //public Boolean Connecting()
+        //{
+        //    try
+        //    {
+        //        using (GameZardContext context = new GameZardContext())
+        //        {
+
+        //            //var emulatorDAL = context.Emulators.Find("");
+        //            var emulatorDAL = context.Emulators.FirstOrDefault(emu => emu.Name == "" &&
+        //                                                                    emu.Console == "");
+                    
+        //            if (emulatorDAL == null)
+        //            {
+        //                return true;
+        //            }
+
+        //            //if (emulatorDAL.Name == "Test" && emulatorDAL.Console == "Test")
+        //            //{
+        //            //    return true;
+        //            //}
+
+        //            return false;
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        //MessageBox.Show("Exception: " + ex.InnerException.Source);
+        //        MessageBox.Show("Exception: " + ex);
+        //    }
+
+        //    return false;
+        //}
     }
 }

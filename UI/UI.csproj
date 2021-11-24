@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Add Game.png" />
+    <None Remove="Assets\Icons\Cemu.ico" />
     <None Remove="Back-Up.ico" />
     <None Remove="Cemu.ico" />
     <None Remove="Citra.ico" />
@@ -44,6 +45,7 @@
 
   <ItemGroup>
     <Resource Include="Add Game.png" />
+    <Resource Include="Assets\Icons\Cemu.ico" />
     <Resource Include="Back-Up.ico" />
     <Resource Include="Cemu.ico" />
     <Resource Include="Citra.ico" />
