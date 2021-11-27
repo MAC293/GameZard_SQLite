@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -79,7 +80,11 @@ namespace UI
 
             DisplayBackUp();
 
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
 
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
 
 
 
@@ -132,12 +137,44 @@ namespace UI
 
         private void btnFromPath_Click(object sender, RoutedEventArgs e)
         {
+            FolderBrowserDialog fromPath = new FolderBrowserDialog();
 
+            //fromPath.Description = "Select Savedata Source Path";
+            fromPath.ShowNewFolderButton = false;
+            fromPath.RootFolder = Environment.SpecialFolder.MyComputer;
+
+            DialogResult result = fromPath.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                String path = fromPath.SelectedPath;
+                txtFrom.Text = path;
+
+                SaveData.FromPath = path;
+                SaveData.SaveFrom(lblEmulator.Content.ToString());
+
+
+            }
         }
 
         private void btnToPath_Click(object sender, RoutedEventArgs e)
         {
-            
+            FolderBrowserDialog toPath = new FolderBrowserDialog();
+
+            //toPath.Description = "Select Savedata Destination Path";
+            toPath.ShowNewFolderButton = false;
+            toPath.RootFolder = Environment.SpecialFolder.MyComputer;
+
+            DialogResult result = toPath.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                String path = toPath.SelectedPath;
+                txtTo.Text = path;
+
+                SaveData.ToPath = path;
+                SaveData.SaveTo(lblEmulator.Content.ToString());
+            }
         }
 
         private void rbManually_Checked(object sender, RoutedEventArgs e)

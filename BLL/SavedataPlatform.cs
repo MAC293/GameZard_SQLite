@@ -103,6 +103,92 @@ namespace BLL
             }
         }
 
+        public void SaveFrom(String emulatorName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataEmulators.FirstOrDefault(save =>
+                            save.Id == emulatorName);
+
+                    if (saveDAL != null)
+                    {
+                        saveDAL.FromPath = FromPath;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void SaveTo(String emulatorName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataEmulators.FirstOrDefault(save =>
+                            save.Id == emulatorName);
+
+                    if (saveDAL != null)
+                    {
+                        saveDAL.ToPath = ToPath;
+                        context.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void LoadFrom(String emulatorName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataEmulators.FirstOrDefault(save =>
+                            save.Id == emulatorName);
+
+                    if (saveDAL != null)
+                    {
+                        FromPath = saveDAL.FromPath;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void LoadTo(String emulatorName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataEmulators.FirstOrDefault(save =>
+                            save.Id == emulatorName);
+
+                    if (saveDAL != null)
+                    {
+                        ToPath = saveDAL.ToPath;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
 
     }
 }
