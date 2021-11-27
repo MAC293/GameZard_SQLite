@@ -20,14 +20,46 @@ namespace UI
     /// </summary>
     public partial class TrayIconMenu : Window
     {
+        private List<String> _Games;
         public TrayIconMenu()
         {
             InitializeComponent();
+
+            Games = new List<String>();
+
+            TrayMenu.DisplayGames(Games);
+
+            FillList();
+
+        }
+
+        public List<String> Games
+        {
+            get { return _Games; }
+            set { _Games = value; }
         }
 
         protected override void OnSourceInitialized(EventArgs e)
         {
             IconHelper.RemoveIcon(this);
         }
+
+        public void FillList()
+        {
+            if (Games != null)
+            {
+                if (Games.Count > 0)
+                {
+                    foreach (var game in Games)
+                    {
+                        cmbGames.Items.Add(game);
+                    }
+
+                    //lbGames.ItemsSource = Game.Games;
+                }
+            }
+        }
+
+        
     }
 }
