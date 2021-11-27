@@ -13,16 +13,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BLL;
 
 namespace UI
 {
 
     public partial class Emulator : Window
     {
+        private SavedataPlatform _SaveData;
         public Emulator()
         {
             InitializeComponent();
+
+            SaveData = new SavedataPlatform();
         }
+
+        public SavedataPlatform SaveData
+        {
+            get { return _SaveData; }
+            set { _SaveData = value; }
+        }
+
 
         private void btnWiiU_Click(object sender, RoutedEventArgs e)
         {
@@ -65,6 +76,10 @@ namespace UI
             lblEmulator.Content = "Cemu";
 
             imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/Cemu.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+
 
 
 
@@ -123,6 +138,43 @@ namespace UI
         private void btnToPath_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void rbManually_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rbManually.IsChecked == true)
+            {
+                SaveData.BackUpMode = "Manually";
+                SaveData.SaveBackUp(lblEmulator.Content.ToString());
+            }
+        }
+
+        private void rbAutomatically_Checked(object sender, RoutedEventArgs e)
+        {
+            if (rbAutomatically.IsChecked == true)
+            {
+                SaveData.BackUpMode = "Automatically";
+                SaveData.SaveBackUp(lblEmulator.Content.ToString());
+            }
+        }
+
+        public void DisplayBackUp()
+        {
+            SaveData.LoadBackUp(lblEmulator.Content.ToString());
+
+            if (SaveData.BackUpMode == "Manually")
+            {
+                rbManually.IsChecked = true;
+            }
+            else if (SaveData.BackUpMode == "Automatically")
+            {
+                rbAutomatically.IsChecked = true;
+            }
+            else
+            {
+                rbManually.IsChecked = false;
+                rbAutomatically.IsChecked = false;
+            }
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using DAL.Models;
 
 namespace BLL
 {
@@ -48,5 +50,59 @@ namespace BLL
             get { return _LastSaved; }
             set { _LastSaved = value; }
         }
+
+        public void SaveBackUp(String emulatorName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataEmulators.FirstOrDefault(save =>
+                            save.Id == emulatorName);
+
+                    if (saveDAL != null)
+                    {
+                        saveDAL.BackUpMode = BackUpMode;
+                        context.SaveChanges();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+        public void LoadBackUp(String emulatorName)
+        {
+            try
+            {
+                using (GameZardContext context = new GameZardContext())
+                {
+                    var saveDAL = context.SavedataEmulators.FirstOrDefault(save =>
+                            save.Id == emulatorName);
+
+                    if (saveDAL != null)
+                    {
+                        if (saveDAL.BackUpMode == null)
+                        {
+                            BackUpMode = String.Empty;
+                        }
+                        else
+                        {
+                            BackUpMode = saveDAL.BackUpMode;
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex);
+            }
+        }
+
+
     }
 }
