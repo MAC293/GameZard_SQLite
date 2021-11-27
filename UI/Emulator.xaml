@@ -77,7 +77,7 @@
             <Grid>
                 <!--Source="/Gamepad Example.ico"-->
                 <Image x:Name="imgEmulator" Height="100" Margin="15,19,515,292"/>
-                <Label x:Name="lblEmulator" BorderThickness="0" Background="Transparent" Content="Label" HorizontalAlignment="Left" Margin="149,53,0,0" VerticalAlignment="Top" FontSize="15"/>
+                <Label x:Name="lblEmulator" BorderThickness="0" Background="Transparent" HorizontalAlignment="Left" Margin="149,53,0,0" VerticalAlignment="Top" FontSize="15"/>
                 <Label x:Name="label2" BorderThickness="0" Background="Transparent" Content="Back-Up" HorizontalAlignment="Left" Margin="35,139,0,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rbManually" Content="Manually" HorizontalAlignment="Left" Margin="132,145,0,0" VerticalAlignment="Top" Checked="rbManually_Checked"/>
                 <RadioButton x:Name="rbAutomatically" Content="Automatically" HorizontalAlignment="Left" Margin="257,145,0,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Checked="rbAutomatically_Checked"/>

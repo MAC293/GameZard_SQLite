@@ -9,6 +9,14 @@
   <ItemGroup>
     <None Remove="Add Game.png" />
     <None Remove="Assets\Icons\Cemu.ico" />
+    <None Remove="Assets\Icons\Citra.ico" />
+    <None Remove="Assets\Icons\Dolphin.ico" />
+    <None Remove="Assets\Icons\ePSXe.ico" />
+    <None Remove="Assets\Icons\PCSX2.ico" />
+    <None Remove="Assets\Icons\PPSSPP.ico" />
+    <None Remove="Assets\Icons\SNES9x.ico" />
+    <None Remove="Assets\Icons\VisualBoyAdvance.ico" />
+    <None Remove="Assets\Icons\YUZU.ico" />
     <None Remove="Back-Up.ico" />
     <None Remove="Cemu.ico" />
     <None Remove="Citra.ico" />
@@ -46,6 +54,14 @@
   <ItemGroup>
     <Resource Include="Add Game.png" />
     <Resource Include="Assets\Icons\Cemu.ico" />
+    <Resource Include="Assets\Icons\Citra.ico" />
+    <Resource Include="Assets\Icons\Dolphin.ico" />
+    <Resource Include="Assets\Icons\ePSXe.ico" />
+    <Resource Include="Assets\Icons\PCSX2.ico" />
+    <Resource Include="Assets\Icons\PPSSPP.ico" />
+    <Resource Include="Assets\Icons\SNES9x.ico" />
+    <Resource Include="Assets\Icons\VisualBoyAdvance.ico" />
+    <Resource Include="Assets\Icons\YUZU.ico" />
     <Resource Include="Back-Up.ico" />
     <Resource Include="Cemu.ico" />
     <Resource Include="Citra.ico" />

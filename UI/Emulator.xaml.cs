@@ -85,54 +85,141 @@ namespace UI
 
             SaveData.LoadTo(lblEmulator.Content.ToString());
             txtTo.Text = SaveData.ToPath;
-
-
-
         }
 
         private void btnPSP_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "PPSSPP";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/PPSSPP.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnPS2_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "PCSX2";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/PCSX2.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnPSX_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "ePSXe";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/ePSXe.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnWii_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "Dolphin(Wii)";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/Dolphin.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnGameCube_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "Dolphin(GameCube)";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/Dolphin.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btn3DS_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "Citra";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/Citra.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnGBA_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "Visual Boy Advance";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/VisualBoyAdvance.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnSNES_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "SNES9x";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/SNES9x.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnSwitch_Click(object sender, RoutedEventArgs e)
         {
+            lblEmulator.Content = "YUZU";
 
+            imgEmulator.Source = new BitmapImage(new Uri("/Assets/Icons/YUZU.ico", UriKind.Relative));
+
+            DisplayBackUp();
+
+            SaveData.LoadFrom(lblEmulator.Content.ToString());
+            txtFrom.Text = SaveData.FromPath;
+
+            SaveData.LoadTo(lblEmulator.Content.ToString());
+            txtTo.Text = SaveData.ToPath;
         }
 
         private void btnFromPath_Click(object sender, RoutedEventArgs e)
