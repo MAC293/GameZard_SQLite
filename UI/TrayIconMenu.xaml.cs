@@ -39,7 +39,7 @@ namespace UI
             InitWorker();
 
 
-            
+
 
         }
 
@@ -145,22 +145,15 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-                //MessageBox.Show(toPath);
+                //CopyFolder(fromPath, toPath);
 
-                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
-                CopyFilesRecursively(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
-                //String fileToCopy = Game.Savedata.FromPath;
-                //String destinationDirectory = Game.Savedata.ToPath;
-
-                //File.Copy(fileToCopy, destinationDirectory + System.IO.Path.GetFileName(fileToCopy));
+                Worker.RunWorkerAsync();
             }
 
 
         }
 
-        public void CopyFilesRecursively(string sourcePath, string targetPath)
+        public void CopyFolder(String sourcePath, String targetPath)
         {
             //Now Create all of the directories
             foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
@@ -175,7 +168,7 @@ namespace UI
             }
         }
 
-        public void CopyFolder(String source, String target)
+        public void CopyFolder1(String source, String target)
         {
             FileStream fsout = new FileStream(target, FileMode.Create);
             FileStream fsin = new FileStream(source, FileMode.Open);
