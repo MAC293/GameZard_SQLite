@@ -119,36 +119,61 @@ namespace UI
 
         private void btnPCBU_Click(object sender, RoutedEventArgs e)
         {
-            String gameName = cmbGames.SelectedValue.ToString();
+            if (cmbGames.SelectedItem == null)
+            {
+                MessageBox.Show("Not Game Selected!");
+            }
+            else
+            {
+                String gameName = cmbGames.SelectedValue.ToString();
 
-            //Game gameBU = new Game();
+                //Game gameBU = new Game();
 
-            Game = new Game();
+                Game = new Game();
 
-            String gameID = Game.SendID(gameName);
+                String gameID = Game.SendID(gameName);
 
-            Game.Savedata.LoadFrom(gameID);
+                Game.Savedata.LoadFrom(gameID);
 
-            //From Path
-            String fromPath = Game.Savedata.FromPath;
+                //From Path
+                String fromPath = Game.Savedata.FromPath;
 
-            //MessageBox.Show(fromPath);
+                //MessageBox.Show(fromPath);
 
-            Game.Savedata.LoadTo(gameID);
+                Game.Savedata.LoadTo(gameID);
 
-            //To Path
-            String toPath = Game.Savedata.ToPath;
+                //To Path
+                String toPath = Game.Savedata.ToPath;
 
-            //MessageBox.Show(toPath);
+                //MessageBox.Show(toPath);
 
-            //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
+                CopyFilesRecursively(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
+                //String fileToCopy = Game.Savedata.FromPath;
+                //String destinationDirectory = Game.Savedata.ToPath;
+
+                //File.Copy(fileToCopy, destinationDirectory + System.IO.Path.GetFileName(fileToCopy));
+            }
 
 
         }
 
+        public void CopyFilesRecursively(string sourcePath, string targetPath)
+        {
+            //Now Create all of the directories
+            foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+            {
+                Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
+            }
 
+            //Copy all the files & Replaces any files with the same name
+            foreach (string newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+            {
+                File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
+            }
+        }
 
         public void CopyFolder(String source, String target)
         {
