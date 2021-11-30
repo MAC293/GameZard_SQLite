@@ -60,6 +60,28 @@ namespace UI
             }
         }
 
-        
+        private void btnPCBU_Click(object sender, RoutedEventArgs e)
+        {
+            String gameName = cmbGames.SelectedValue.ToString();
+
+            Game gameBU = new Game();
+
+            String gameID = gameBU.SendID(gameName);
+
+            gameBU.Savedata.LoadFrom(gameID);
+
+            String fromPath = gameBU.Savedata.FromPath;
+
+            MessageBox.Show(fromPath);
+
+            gameBU.Savedata.LoadTo(gameID);
+
+            String toPath = gameBU.Savedata.ToPath;
+
+            MessageBox.Show(toPath);
+
+
+
+        }
     }
 }
