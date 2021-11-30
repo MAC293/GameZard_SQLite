@@ -30,16 +30,13 @@ namespace UI
         {
             InitializeComponent();
 
+            InitWorker();
+
             Games = new List<String>();
 
             TrayMenu.DisplayGames(Games);
 
             FillList();
-
-            InitWorker();
-
-
-
 
         }
 
@@ -49,9 +46,10 @@ namespace UI
 
             Worker.WorkerSupportsCancellation = true;
             Worker.WorkerReportsProgress = true;
+            Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
             Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-            Worker.ProgressChanged += Worker_ProgressChanged;
+            
         }
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -76,6 +74,7 @@ namespace UI
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+            
         }
 
         public List<String> Games
