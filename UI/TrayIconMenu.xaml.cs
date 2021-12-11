@@ -49,9 +49,9 @@ namespace UI
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
-            
+
             //Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-            
+
         }
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -77,7 +77,7 @@ namespace UI
         {
             CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //MessageBox.Show("Operation is Aborted!");
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i <= 100; i++)
             {
                 (sender as BackgroundWorker).ReportProgress(i);
 
