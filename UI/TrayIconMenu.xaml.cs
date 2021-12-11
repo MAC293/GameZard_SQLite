@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,7 +49,8 @@ namespace UI
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
-            Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            
+            //Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             
         }
 
@@ -57,24 +59,31 @@ namespace UI
             pbPC.Value = e.ProgressPercentage;
         }
 
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Cancelled)
-            {
-                //XtraMessageBox.Show("Operation is Aborted!");
+        //private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        //{
+        //    if (e.Cancelled)
+        //    {
+        //        //XtraMessageBox.Show("Operation is Aborted!");
 
-                MessageBox.Show("Operation is Aborted!");
-            }
-            else
-            {
-                //MessageBox.Show("Operation is Completed!");
-            }
-        }
+        //        MessageBox.Show("Operation is Aborted!");
+        //    }
+        //    else
+        //    {
+        //        //MessageBox.Show("Operation is Completed!");
+        //    }
+        //}
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-            
+            //MessageBox.Show("Operation is Aborted!");
+            for (int i = 0; i < 100; i++)
+            {
+                (sender as BackgroundWorker).ReportProgress(i);
+
+                Thread.Sleep(100);
+            }
+
         }
 
         public List<String> Games

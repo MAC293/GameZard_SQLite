@@ -13,3 +13,4 @@ E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\DAL\obj\Debug\net5.0-windows\D
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\DAL\bin\Debug\net5.0-windows\DAL.runtimeconfig.json
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\DAL\bin\Debug\net5.0-windows\DAL.runtimeconfig.dev.json
 E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\DAL\obj\Debug\net5.0-windows\DAL.genruntimeconfig.cache
+E:\Projects\IT\GameZard\Solutions\GameZard_SQLite\DAL\obj\Debug\net5.0-windows\DAL.csproj.AssemblyReference.cache
