@@ -75,14 +75,19 @@ namespace UI
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+            
             //MessageBox.Show("Operation is Aborted!");
             for (int i = 0; i <= 100; i++)
             {
                 (sender as BackgroundWorker).ReportProgress(i);
 
-                Thread.Sleep(100);
+                //Wait 2 seconds
+                Thread.Sleep(2000);
+
+                Worker.ReportProgress(i);
             }
+
+            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
         }
 
@@ -164,13 +169,13 @@ namespace UI
         public void CopyFolder(String sourcePath, String targetPath)
         {
             //Now Create all of the directories
-            foreach (string dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+            foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
             {
                 Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
             }
 
             //Copy all the files & Replaces any files with the same name
-            foreach (string newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+            foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
             {
                 File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
             }
