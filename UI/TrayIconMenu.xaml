@@ -15,7 +15,7 @@
                 <ImageBrush ImageSource="/Back-Up.ico" />
             </Button.Background>
         </Button>
-        <ProgressBar Name="pbPC" Foreground="Green" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
+        <ProgressBar Name="pbPC" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="36" Margin="150,108,0,0" VerticalAlignment="Top" Width="32" Source="/VisualBoyAdvance.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="button_Copy" HorizontalAlignment="Left" Margin="308,139,0,0" VerticalAlignment="Top" BorderThickness="0" Height="30" Width="26">
             <Button.Background>

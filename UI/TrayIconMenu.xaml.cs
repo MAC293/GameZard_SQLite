@@ -56,6 +56,7 @@ namespace UI
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            //Change the value of the ProgressBar
             pbPC.Value = e.ProgressPercentage;
         }
 
@@ -75,19 +76,25 @@ namespace UI
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            
+
+            Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
             //MessageBox.Show("Operation is Aborted!");
             for (int i = 0; i <= 100; i++)
             {
-                (sender as BackgroundWorker).ReportProgress(i);
-
-                //Wait 2 seconds
-                Thread.Sleep(2000);
-
+                //(sender as BackgroundWorker).ReportProgress(i);
                 Worker.ReportProgress(i);
+
+                //Wait 1 seconds
+                Thread.Sleep(1000);
+
+               
+
+                //Report progress
+                //Worker.ReportProgress(i);
             }
 
-            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+
+            //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
         }
 
@@ -160,7 +167,11 @@ namespace UI
 
                 //CopyFolder(fromPath, toPath);
 
+                //Start the BackgroundWorker
+                //Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
+
                 Worker.RunWorkerAsync();
+
             }
 
 
