@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -77,24 +78,42 @@ namespace UI
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
 
-            Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
+            //Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
             //MessageBox.Show("Operation is Aborted!");
-            for (int i = 0; i <= 100; i++)
-            {
-                //(sender as BackgroundWorker).ReportProgress(i);
-                Worker.ReportProgress(i);
 
-                //Wait 1 seconds
-                Thread.Sleep(1000);
+            //Task.Run(() => {
 
-               
+            //    for (int i = 0; i <= 10; i++)
+            //    {
+            //        MessageBox.Show("Worker: " + i.ToString());
 
-                //Report progress
-                //Worker.ReportProgress(i);
-            }
+            //    }
+            //});
 
+            //for (int i = 0; i <= 100; i++)
+            //{
+            //    //(sender as BackgroundWorker).ReportProgress(i);
+            //    Worker.ReportProgress(i);
+
+            //    //Wait 1 seconds
+            //    Thread.Sleep(100);
+
+            //    //Report progress
+            //    //Worker.ReportProgress(i);
+            //}
+
+            //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
             //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+
+
+            CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
+
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    int percentage = (i + 1) * 100 / 60000000;
+            //    Worker.ReportProgress(percentage);
+            //}
 
         }
 
@@ -170,6 +189,35 @@ namespace UI
                 //Start the BackgroundWorker
                 //Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
 
+                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
+
+                //Task.Run(() =>
+                //{
+
+                //    for (int i = 0; i <= 10; i++)
+                //    {
+                //        MessageBox.Show("UI Thread (Task.Run): " + i.ToString());
+
+                //    }
+                //});
+
+                //for (int i = 0; i <= 10; i++)
+                //{
+                //    MessageBox.Show("UI Thread: " + i.ToString());
+
+                //}
+
+
+
+                //Task.Run(() => {
+
+                //    for (int i = 0; i <= 10; i++)
+                //    {
+                //        MessageBox.Show("UI Thread: " + i.ToString());
+
+                //    }
+                //});
+
                 Worker.RunWorkerAsync();
 
             }
@@ -209,6 +257,13 @@ namespace UI
 
             fsin.Close();
             fsout.Close();
+        }
+
+        public void CopyFolder2(String source, String target)
+        {
+            
+
+         
         }
     }
 }
