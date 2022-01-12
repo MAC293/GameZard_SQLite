@@ -90,24 +90,24 @@ namespace UI
             //    }
             //});
 
-            //for (int i = 0; i <= 100; i++)
-            //{
-            //    //(sender as BackgroundWorker).ReportProgress(i);
-            //    Worker.ReportProgress(i);
+            for (int i = 0; i <= 100; i++)
+            {
+                //(sender as BackgroundWorker).ReportProgress(i);
+                Worker.ReportProgress(i);
 
-            //    //Wait 1 seconds
-            //    Thread.Sleep(100);
+                //Wait 1 seconds
+                Thread.Sleep(100);
 
-            //    //Report progress
-            //    //Worker.ReportProgress(i);
-            //}
+                //Report progress
+                //Worker.ReportProgress(i);
+            }
 
             //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
             //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
 
-            CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
+            //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
             //for (int i = 0; i < 100; i++)
             //{
@@ -191,23 +191,22 @@ namespace UI
 
                 //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
 
-                //Task.Run(() =>
-                //{
+                Task.Run(() =>
+                {
 
-                //    for (int i = 0; i <= 10; i++)
-                //    {
-                //        MessageBox.Show("UI Thread (Task.Run): " + i.ToString());
+                    for (int i = 0; i <= 10; i++)
+                    {
+                        MessageBox.Show("UI Thread (Task.Run): " + i.ToString());
+                        
 
-                //    }
-                //});
+                    }
+                });
 
                 //for (int i = 0; i <= 10; i++)
                 //{
                 //    MessageBox.Show("UI Thread: " + i.ToString());
 
                 //}
-
-
 
                 //Task.Run(() => {
 
@@ -217,6 +216,8 @@ namespace UI
 
                 //    }
                 //});
+
+                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
                 Worker.RunWorkerAsync();
 
