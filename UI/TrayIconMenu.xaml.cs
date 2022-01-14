@@ -90,25 +90,28 @@ namespace UI
             //    }
             //});
 
-            for (int i = 0; i <= 100; i++)
-            {
-                //(sender as BackgroundWorker).ReportProgress(i);
-                Worker.ReportProgress(i);
+            //for (int i = 0; i <= 100; i++)
+            //{
+            //    //(sender as BackgroundWorker).ReportProgress(i);
+            //    Worker.ReportProgress(i);
 
-                //Wait 1 seconds
-                Thread.Sleep(100);
+            //    //Wait 1 seconds
+            //    Thread.Sleep(100);
 
-                //Report progress
-                //Worker.ReportProgress(i);
-            }
+            //    //Report progress
+            //    //Worker.ReportProgress(i);
+            //}
 
+            //for (int i = 0; i < 17; i++)
+            //{
+            //    //17, files qty
+            //    int percentage = (i + 1) * 100 / 17;
+            //    Worker.ReportProgress(percentage);
+            //}
+
+            CopyFolder1("E:\\Projects\\IT\\GameZard\\From\\Game\\2.89 GB.iso", "E:\\Projects\\IT\\GameZard\\To\\Game)");
             //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
-            //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
-
-            //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
+            //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //for (int i = 0; i < 100; i++)
             //{
             //    int percentage = (i + 1) * 100 / 60000000;
@@ -191,16 +194,16 @@ namespace UI
 
                 //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
 
-                Task.Run(() =>
-                {
+                //Task.Run(() =>
+                //{
 
-                    for (int i = 0; i <= 10; i++)
-                    {
-                        MessageBox.Show("UI Thread (Task.Run): " + i.ToString());
-                        
+                //    for (int i = 0; i <= 10; i++)
+                //    {
+                //        MessageBox.Show("UI Thread (Task.Run): " + i.ToString());
 
-                    }
-                });
+
+                //    }
+                //});
 
                 //for (int i = 0; i <= 10; i++)
                 //{
@@ -217,9 +220,12 @@ namespace UI
                 //    }
                 //});
 
-                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+                //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
+
+
 
                 Worker.RunWorkerAsync();
+
 
             }
 
@@ -243,10 +249,10 @@ namespace UI
 
         public void CopyFolder1(String source, String target)
         {
-            FileStream fsout = new FileStream(target, FileMode.Create);
             FileStream fsin = new FileStream(source, FileMode.Open);
+            FileStream fsout = new FileStream(target, FileMode.Create);
 
-            byte[] buffer = new Byte[10000000000]; //10 GB
+            byte[] buffer = new Byte[1000000]; //10 GB
 
             int readBytes;
 
@@ -260,11 +266,31 @@ namespace UI
             fsout.Close();
         }
 
-        public void CopyFolder2(String source, String target)
+        public void CopyFolder2(String sourcePath, String targetPath)
         {
-            
 
-         
+            int bufferSize = 1024 * 512;
+            using (FileStream inStream = new FileStream(sourcePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fileStream = new FileStream(targetPath, FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                int bytesRead = -1;
+                var totalReads = 0;
+                var totalBytes = inStream.Length;
+                byte[] bytes = new byte[bufferSize];
+                int prevPercent = 0;
+
+                while ((bytesRead = inStream.Read(bytes, 0, bufferSize)) > 0)
+                {
+                    fileStream.Write(bytes, 0, bytesRead);
+                    totalReads += bytesRead;
+                    int percent = System.Convert.ToInt32(((decimal)totalReads / (decimal)totalBytes) * 100);
+                    if (percent != prevPercent)
+                    {
+                        Worker.ReportProgress(percent);
+                        prevPercent = percent;
+                    }
+                }
+            }
         }
     }
 }
