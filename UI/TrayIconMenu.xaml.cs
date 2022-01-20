@@ -109,7 +109,7 @@ namespace UI
             //    Worker.ReportProgress(percentage);
             //}
 
-            CopyFolder1("E:\\Projects\\IT\\GameZard\\From\\Game\\2.89 GB.iso", "E:\\Projects\\IT\\GameZard\\To\\Game)");
+            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //for (int i = 0; i < 100; i++)
@@ -205,6 +205,13 @@ namespace UI
                 //    }
                 //});
 
+                //for (int i = 0; i < filesCount; i++)
+                //{
+                //    ParseSingleFile(); // pass filename here
+                //    int percentage = (i + 1) * 100 / filesCount;
+                //    myBGWorker.ReportProgress(percentage);
+                //}
+
                 //for (int i = 0; i <= 10; i++)
                 //{
                 //    MessageBox.Show("UI Thread: " + i.ToString());
@@ -222,6 +229,20 @@ namespace UI
 
                 //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
+                //var fruits = new[] { "apple", "cherry", "pineapple", "plum" };
+
+                //var result = new string[fruits.Length];
+
+                //for (int i = 0; i < fruits.Length; i++)
+                //{
+                //    result[i] = fruits[i];
+                //}
+
+
+                //foreach (var fruit in result)
+                //{
+                //    MessageBox.Show(fruit);
+                //}
 
 
                 Worker.RunWorkerAsync();
@@ -232,27 +253,54 @@ namespace UI
 
         }
 
-        public void CopyFolder(String sourcePath, String targetPath)
+        public void CopyFolder(String source, String target)
         {
-            //Now Create all of the directories
-            foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+            foreach (var directory in Directory.GetDirectories(source))
             {
-                Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
+                string dirName = System.IO.Path.GetFileName(directory);
+
+                if (!Directory.Exists(System.IO.Path.Combine(target, dirName)))
+                {
+                    Directory.CreateDirectory(System.IO.Path.Combine(target, dirName));
+                }
+
+                CopyFolder(directory, System.IO.Path.Combine(target, dirName));
+                //MessageBox.Show("Flag 1");
             }
 
-            //Copy all the files & Replaces any files with the same name
-            foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+            
+
+            foreach (var file in Directory.GetFiles(source))
             {
-                File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
+                File.Copy(file, System.IO.Path.Combine(target, System.IO.Path.GetFileName(file)));
+
+                DirectoryInfo dir = new DirectoryInfo(target);
+                int count = dir.GetFiles().Length;
+                MessageBox.Show(count.ToString());
             }
         }
+
+        //public void CopyFolder(String sourcePath, String targetPath)
+        //{
+        //    //Now Create all of the directories
+        //    foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+        //    {
+        //        Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
+        //    }
+
+        //    //Copy all the files & Replaces any files with the same name
+        //    foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+        //    {
+        //        File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
+        //    }
+        //}
 
         public void CopyFolder1(String source, String target)
         {
             FileStream fsin = new FileStream(source, FileMode.Open);
             FileStream fsout = new FileStream(target, FileMode.Create);
 
-            byte[] buffer = new Byte[1000000]; //10 GB
+            byte[] buffer = new Byte[10000000]; //10 GB
 
             int readBytes;
 
