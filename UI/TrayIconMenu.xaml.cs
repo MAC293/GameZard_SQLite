@@ -255,28 +255,35 @@ namespace UI
 
         public void CopyFolder(String source, String target)
         {
+            MessageBox.Show("Source: "+source);
+            MessageBox.Show("Target: " + target);
+
             foreach (var directory in Directory.GetDirectories(source))
             {
+                MessageBox.Show("Source: " + source);
                 string dirName = System.IO.Path.GetFileName(directory);
 
                 if (!Directory.Exists(System.IO.Path.Combine(target, dirName)))
                 {
+                    MessageBox.Show("Target: " + target);
                     Directory.CreateDirectory(System.IO.Path.Combine(target, dirName));
+                    MessageBox.Show("Target: " + target);
                 }
 
                 CopyFolder(directory, System.IO.Path.Combine(target, dirName));
-                //MessageBox.Show("Flag 1");
+                MessageBox.Show("Target: " + target);
+                MessageBox.Show("dirName: " + dirName);
             }
-
-            
 
             foreach (var file in Directory.GetFiles(source))
             {
+                MessageBox.Show("Source: " + source);
                 File.Copy(file, System.IO.Path.Combine(target, System.IO.Path.GetFileName(file)));
+                MessageBox.Show("Target: " + target);
 
                 DirectoryInfo dir = new DirectoryInfo(target);
                 int count = dir.GetFiles().Length;
-                MessageBox.Show(count.ToString());
+                MessageBox.Show("Target: " + target);
             }
         }
 
