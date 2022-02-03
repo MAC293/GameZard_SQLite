@@ -106,10 +106,11 @@ namespace UI
             //{
             //    //17, files qty
             //    int percentage = (i + 1) * 100 / 17;
-            //    Worker.ReportProgress(percentage);
+            //    int PercentageDone = 100 * SizeOfFilesAlreadyCopied/TotalSizeOfAllFiles;
+            //    Worker.ReportProgress(percentage/PercentageDone);
             //}
 
-            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+            CopyFolder4(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //for (int i = 0; i < 100; i++)
@@ -246,6 +247,7 @@ namespace UI
 
 
                 Worker.RunWorkerAsync();
+                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
 
 
             }
@@ -255,7 +257,22 @@ namespace UI
 
         public void CopyFolder(String source, String target)
         {
-            MessageBox.Show("Source: "+source);
+            String finalTarget = target;
+            Boolean same = false;
+
+            if (finalTarget != null)
+            {
+                same = true;
+            }
+
+            //DirectoryInfo dir = new DirectoryInfo(source);
+            //int count = dir.GetFiles().Length;
+
+            var files = Directory.GetFiles(source, "*.*", SearchOption.AllDirectories);
+            
+            MessageBox.Show("Target: " + files.Length);
+
+            MessageBox.Show("Source: " + source);
             MessageBox.Show("Target: " + target);
 
             foreach (var directory in Directory.GetDirectories(source))
@@ -281,26 +298,42 @@ namespace UI
                 File.Copy(file, System.IO.Path.Combine(target, System.IO.Path.GetFileName(file)));
                 MessageBox.Show("Target: " + target);
 
-                DirectoryInfo dir = new DirectoryInfo(target);
-                int count = dir.GetFiles().Length;
-                MessageBox.Show("Target: " + target);
+                //DirectoryInfo dir = new DirectoryInfo(target);
+                //int count = dir.GetFiles().Length;
+                
+                //MessageBox.Show("File: " + count);
+
+                //Worker.ReportProgress(count);
+
+
+                //MessageBox.Show("Target: " + target);
+                //MessageBox.Show("dir 2: " + count);
             }
         }
 
-        //public void CopyFolder(String sourcePath, String targetPath)
-        //{
-        //    //Now Create all of the directories
-        //    foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
-        //    {
-        //        Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
-        //    }
+        public void CopyFolder4(String sourcePath, String targetPath)
+        {
+            //int PercentageDone = 100 * SizeOfFilesAlreadyCopied / TotalSizeOfAllFiles;
+            var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
 
-        //    //Copy all the files & Replaces any files with the same name
-        //    foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
-        //    {
-        //        File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
-        //    }
-        //}
+            var targetQTY = Directory.GetFiles(targetPath, "*.*", SearchOption.AllDirectories);
+
+
+            //Now Create all of the directories
+            foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
+            {
+                Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
+            }
+
+            //Copy all the files & Replaces any files with the same name
+            foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
+            {
+                File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
+                int percentage = 100 * targetQTY.Length / sourceQTY.Length;
+                Worker.ReportProgress(percentage);
+
+            }
+        }
 
         public void CopyFolder1(String source, String target)
         {
@@ -347,5 +380,7 @@ namespace UI
                 }
             }
         }
+
+       
     }
 }
