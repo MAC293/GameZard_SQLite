@@ -314,24 +314,34 @@ namespace UI
         public void CopyFolder4(String sourcePath, String targetPath)
         {
             //int PercentageDone = 100 * SizeOfFilesAlreadyCopied / TotalSizeOfAllFiles;
+
+            //Source top folder quantity
             var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
 
+            //Target top folder quantity
             var targetQTY = Directory.GetFiles(targetPath, "*.*", SearchOption.AllDirectories);
 
 
-            //Now Create all of the directories
+            //Creates all of the directories
             foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
             {
                 Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
             }
 
-            //Copy all the files & Replaces any files with the same name
+
+            int counter = 0;
+            //Copy all the files replacing any current file with the same name
             foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
             {
                 File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
-                int percentage = 100 * targetQTY.Length / sourceQTY.Length;
-                Worker.ReportProgress(percentage);
 
+                counter += 1;
+
+                int percentage = 100 * counter / sourceQTY.Length;
+                //MessageBox.Show("Percentage: " + percentage.ToString());
+                //MessageBox.Show(percentage.ToString());
+                Worker.ReportProgress(percentage);
+                //Thread.Sleep(1000);
             }
         }
 
