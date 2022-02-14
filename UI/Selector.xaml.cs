@@ -26,6 +26,22 @@ namespace UI
             //Checking();
         }
 
+        private void btnPC_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new PC().Show();
+        }
+
+        private void btnEmulator_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new Emulator().Show();
+        }
+
+
+
+
+
         //public void Checking()
         //{
         //    if (emulator.Connecting())

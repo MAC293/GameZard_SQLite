@@ -9,7 +9,7 @@
         Title="Selector" Height="152" Width="275" Background="Black" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     <Grid Background="Red">
         <Image x:Name="image" Margin="0,18,0,18" HorizontalAlignment="Left" Width="100" Source="/GameZard.png" Stretch="Uniform"/>
-        <Button x:Name="button" Content="PC" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
-        <Button x:Name="button1" Content="Emulator" HorizontalAlignment="Left" Margin="187,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition"/>
+        <Button x:Name="btnPC" Content="PC" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Click="btnPC_Click"/>
+        <Button x:Name="btnEmulator" Content="Emulator" HorizontalAlignment="Left" Margin="187,0,0,0" d:LayoutOverrides="TopPosition, BottomPosition" Click="btnEmulator_Click"/>
     </Grid>
 </Window>

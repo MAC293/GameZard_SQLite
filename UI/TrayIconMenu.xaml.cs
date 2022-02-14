@@ -110,7 +110,7 @@ namespace UI
             //    Worker.ReportProgress(percentage/PercentageDone);
             //}
 
-            CopyFolder4(Game.Savedata.FromPath, Game.Savedata.ToPath);
+            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
             //for (int i = 0; i < 100; i++)
@@ -255,7 +255,7 @@ namespace UI
 
         }
 
-        public void CopyFolder(String source, String target)
+        public void CopyFolder4(String source, String target)
         {
             String finalTarget = target;
             Boolean same = false;
@@ -287,7 +287,7 @@ namespace UI
                     MessageBox.Show("Target: " + target);
                 }
 
-                CopyFolder(directory, System.IO.Path.Combine(target, dirName));
+                CopyFolder4(directory, System.IO.Path.Combine(target, dirName));
                 MessageBox.Show("Target: " + target);
                 MessageBox.Show("dirName: " + dirName);
             }
@@ -311,7 +311,7 @@ namespace UI
             }
         }
 
-        public void CopyFolder4(String sourcePath, String targetPath)
+        public void CopyFolder(String sourcePath, String targetPath)
         {
             //int PercentageDone = 100 * SizeOfFilesAlreadyCopied / TotalSizeOfAllFiles;
 

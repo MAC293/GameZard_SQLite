@@ -300,5 +300,11 @@ namespace UI
                 rbAutomatically.IsChecked = false;
             }
         }
+
+        private void btnSelector_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new Selector().Show();
+        }
     }
 }

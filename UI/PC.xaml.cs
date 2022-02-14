@@ -380,6 +380,12 @@ namespace UI
             }
         }
 
+        private void btnSelector_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new Selector().Show();
+        }
+
 
         //private byte[] ImageToByte(System.Drawing.Image imageIn)
         //{
