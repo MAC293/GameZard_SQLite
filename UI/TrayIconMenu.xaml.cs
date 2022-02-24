@@ -77,48 +77,7 @@ namespace UI
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-
-            //Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
-            //MessageBox.Show("Operation is Aborted!");
-
-            //Task.Run(() => {
-
-            //    for (int i = 0; i <= 10; i++)
-            //    {
-            //        MessageBox.Show("Worker: " + i.ToString());
-
-            //    }
-            //});
-
-            //for (int i = 0; i <= 100; i++)
-            //{
-            //    //(sender as BackgroundWorker).ReportProgress(i);
-            //    Worker.ReportProgress(i);
-
-            //    //Wait 1 seconds
-            //    Thread.Sleep(100);
-
-            //    //Report progress
-            //    //Worker.ReportProgress(i);
-            //}
-
-            //for (int i = 0; i < 17; i++)
-            //{
-            //    //17, files qty
-            //    int percentage = (i + 1) * 100 / 17;
-            //    int PercentageDone = 100 * SizeOfFilesAlreadyCopied/TotalSizeOfAllFiles;
-            //    Worker.ReportProgress(percentage/PercentageDone);
-            //}
-
             CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-            //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
-            //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    int percentage = (i + 1) * 100 / 60000000;
-            //    Worker.ReportProgress(percentage);
-            //}
-
         }
 
         public List<String> Games
@@ -170,8 +129,6 @@ namespace UI
             {
                 String gameName = cmbGames.SelectedValue.ToString();
 
-                //Game gameBU = new Game();
-
                 Game = new Game();
 
                 String gameID = Game.SendID(gameName);
@@ -181,140 +138,18 @@ namespace UI
                 //From Path
                 String fromPath = Game.Savedata.FromPath;
 
-                //MessageBox.Show(fromPath);
-
                 Game.Savedata.LoadTo(gameID);
 
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-                //CopyFolder(fromPath, toPath);
-
-                //Start the BackgroundWorker
-                //Task.Run(() => CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
-
-                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath));
-
-                //Task.Run(() =>
-                //{
-
-                //    for (int i = 0; i <= 10; i++)
-                //    {
-                //        MessageBox.Show("UI Thread (Task.Run): " + i.ToString());
-
-
-                //    }
-                //});
-
-                //for (int i = 0; i < filesCount; i++)
-                //{
-                //    ParseSingleFile(); // pass filename here
-                //    int percentage = (i + 1) * 100 / filesCount;
-                //    myBGWorker.ReportProgress(percentage);
-                //}
-
-                //for (int i = 0; i <= 10; i++)
-                //{
-                //    MessageBox.Show("UI Thread: " + i.ToString());
-
-                //}
-
-                //Task.Run(() => {
-
-                //    for (int i = 0; i <= 10; i++)
-                //    {
-                //        MessageBox.Show("UI Thread: " + i.ToString());
-
-                //    }
-                //});
-
-                //CopyFolder2(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
-                //var fruits = new[] { "apple", "cherry", "pineapple", "plum" };
-
-                //var result = new string[fruits.Length];
-
-                //for (int i = 0; i < fruits.Length; i++)
-                //{
-                //    result[i] = fruits[i];
-                //}
-
-
-                //foreach (var fruit in result)
-                //{
-                //    MessageBox.Show(fruit);
-                //}
-
-
                 Worker.RunWorkerAsync();
-                //CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-
-
             }
 
-
-        }
-
-        public void CopyFolder4(String source, String target)
-        {
-            String finalTarget = target;
-            Boolean same = false;
-
-            if (finalTarget != null)
-            {
-                same = true;
-            }
-
-            //DirectoryInfo dir = new DirectoryInfo(source);
-            //int count = dir.GetFiles().Length;
-
-            var files = Directory.GetFiles(source, "*.*", SearchOption.AllDirectories);
-            
-            MessageBox.Show("Target: " + files.Length);
-
-            MessageBox.Show("Source: " + source);
-            MessageBox.Show("Target: " + target);
-
-            foreach (var directory in Directory.GetDirectories(source))
-            {
-                MessageBox.Show("Source: " + source);
-                string dirName = System.IO.Path.GetFileName(directory);
-
-                if (!Directory.Exists(System.IO.Path.Combine(target, dirName)))
-                {
-                    MessageBox.Show("Target: " + target);
-                    Directory.CreateDirectory(System.IO.Path.Combine(target, dirName));
-                    MessageBox.Show("Target: " + target);
-                }
-
-                CopyFolder4(directory, System.IO.Path.Combine(target, dirName));
-                MessageBox.Show("Target: " + target);
-                MessageBox.Show("dirName: " + dirName);
-            }
-
-            foreach (var file in Directory.GetFiles(source))
-            {
-                MessageBox.Show("Source: " + source);
-                File.Copy(file, System.IO.Path.Combine(target, System.IO.Path.GetFileName(file)));
-                MessageBox.Show("Target: " + target);
-
-                //DirectoryInfo dir = new DirectoryInfo(target);
-                //int count = dir.GetFiles().Length;
-                
-                //MessageBox.Show("File: " + count);
-
-                //Worker.ReportProgress(count);
-
-
-                //MessageBox.Show("Target: " + target);
-                //MessageBox.Show("dir 2: " + count);
-            }
         }
 
         public void CopyFolder(String sourcePath, String targetPath)
         {
-            //int PercentageDone = 100 * SizeOfFilesAlreadyCopied / TotalSizeOfAllFiles;
-
             //Source top folder quantity
             var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
 
@@ -328,7 +163,6 @@ namespace UI
                 Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
             }
 
-
             int counter = 0;
             //Copy all the files replacing any current file with the same name
             foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
@@ -338,13 +172,12 @@ namespace UI
                 counter += 1;
 
                 int percentage = 100 * counter / sourceQTY.Length;
-                //MessageBox.Show("Percentage: " + percentage.ToString());
-                //MessageBox.Show(percentage.ToString());
                 Worker.ReportProgress(percentage);
                 //Thread.Sleep(1000);
             }
         }
 
+        #region Unused CopyFolder
         public void CopyFolder1(String source, String target)
         {
             FileStream fsin = new FileStream(source, FileMode.Open);
@@ -363,34 +196,7 @@ namespace UI
             fsin.Close();
             fsout.Close();
         }
+        #endregion
 
-        public void CopyFolder2(String sourcePath, String targetPath)
-        {
-
-            int bufferSize = 1024 * 512;
-            using (FileStream inStream = new FileStream(sourcePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            using (FileStream fileStream = new FileStream(targetPath, FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                int bytesRead = -1;
-                var totalReads = 0;
-                var totalBytes = inStream.Length;
-                byte[] bytes = new byte[bufferSize];
-                int prevPercent = 0;
-
-                while ((bytesRead = inStream.Read(bytes, 0, bufferSize)) > 0)
-                {
-                    fileStream.Write(bytes, 0, bytesRead);
-                    totalReads += bytesRead;
-                    int percent = System.Convert.ToInt32(((decimal)totalReads / (decimal)totalBytes) * 100);
-                    if (percent != prevPercent)
-                    {
-                        Worker.ReportProgress(percent);
-                        prevPercent = percent;
-                    }
-                }
-            }
-        }
-
-       
     }
 }
