@@ -27,6 +27,7 @@ namespace UI
         private List<String> _Games;
         private BackgroundWorker _Worker;
         private Game _Game;
+        private Platform _Platform;
 
         public TrayIconMenu()
         {
@@ -55,12 +56,6 @@ namespace UI
 
         }
 
-        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            //Change the value of the ProgressBar
-            pbPC.Value = e.ProgressPercentage;
-        }
-
         //private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         //{
         //    if (e.Cancelled)
@@ -75,11 +70,6 @@ namespace UI
         //    }
         //}
 
-        private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
-        }
-
         public List<String> Games
         {
             get { return _Games; }
@@ -92,6 +82,11 @@ namespace UI
             set { _Game = value; }
         }
 
+        public Platform Platform
+        {
+            get { return _Platform; }
+            set { _Platform = value; }
+        }
         public BackgroundWorker Worker
         {
             get { return _Worker; }
@@ -148,6 +143,29 @@ namespace UI
 
         }
 
+        private void btnVBABU_Click(object sender, RoutedEventArgs e)
+        {
+            Platform = new Platform();
+
+            Platform.Savedata.LoadFrom("Visual Boy Advance");
+            Platform.Savedata.LoadTo("Visual Boy Advance");
+
+            MessageBox.Show(Platform.Savedata.FromPath).ToString();
+            MessageBox.Show(Platform.Savedata.ToPath).ToString();
+
+        }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+        }
+
+        private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //Change the value of the ProgressBar
+            pbPC.Value = e.ProgressPercentage;
+        }
+
         public void CopyFolder(String sourcePath, String targetPath)
         {
             //Source top folder quantity
@@ -198,5 +216,6 @@ namespace UI
         }
         #endregion
 
+        
     }
 }

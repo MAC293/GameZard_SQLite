@@ -9,10 +9,10 @@ namespace BLL
     {
         private String _Name;
         private String _Console;
-        private SavedataEmulator _Savedata;
+        private SavedataPlatform _Savedata;
         public Platform()
         {
-            //Savedata = new SavedataEmulator();
+            Savedata = new SavedataPlatform();
         }
 
         public String Name
@@ -27,7 +27,7 @@ namespace BLL
             set { _Console = value; }
         }
 
-        public SavedataEmulator Savedata
+        public SavedataPlatform Savedata
         {
             get { return _Savedata; }
             set { _Savedata = value; }
