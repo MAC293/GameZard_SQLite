@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using BLL;
 
 namespace UI
@@ -26,6 +27,7 @@ namespace UI
     {
         private List<String> _Games;
         private BackgroundWorker _Worker;
+        private BackgroundWorker _Worker1;
         private Game _Game;
         private Platform _Platform;
 
@@ -51,6 +53,13 @@ namespace UI
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
+
+            Worker1 = new BackgroundWorker();
+
+            Worker1.WorkerSupportsCancellation = true;
+            Worker1.WorkerReportsProgress = true;
+            Worker1.ProgressChanged += Worker1_ProgressChanged;
+            Worker1.DoWork += Worker1_DoWork;
 
             //Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
 
@@ -91,6 +100,12 @@ namespace UI
         {
             get { return _Worker; }
             set { _Worker = value; }
+        }
+
+        public BackgroundWorker Worker1
+        {
+            get { return _Worker1; }
+            set { _Worker1 = value; }
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -140,19 +155,6 @@ namespace UI
 
                 Worker.RunWorkerAsync();
             }
-
-        }
-
-        private void btnVBABU_Click(object sender, RoutedEventArgs e)
-        {
-            Platform = new Platform();
-
-            Platform.Savedata.LoadFrom("Visual Boy Advance");
-            Platform.Savedata.LoadTo("Visual Boy Advance");
-
-            MessageBox.Show(Platform.Savedata.FromPath).ToString();
-            MessageBox.Show(Platform.Savedata.ToPath).ToString();
-
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
@@ -164,6 +166,33 @@ namespace UI
         {
             //Change the value of the ProgressBar
             pbPC.Value = e.ProgressPercentage;
+        }
+
+        private void btnVBABU_Click(object sender, RoutedEventArgs e)
+        {
+            Platform = new Platform();
+
+            Platform.Savedata.LoadFrom("Visual Boy Advance");
+            Platform.Savedata.LoadTo("Visual Boy Advance");
+
+            Worker1.RunWorkerAsync();
+
+        }
+
+        private void Worker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CopyFolder(Platform.Savedata.FromPath, Platform.Savedata.ToPath);
+        }
+
+        private void Worker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+            Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+            {
+                pbVBA.Value = e.ProgressPercentage;
+            }));
+            //pbVBA.Value = e.ProgressPercentage;
+
         }
 
         public void CopyFolder(String sourcePath, String targetPath)
@@ -188,10 +217,9 @@ namespace UI
                 File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
 
                 counter += 1;
-
                 int percentage = 100 * counter / sourceQTY.Length;
                 Worker.ReportProgress(percentage);
-                //Thread.Sleep(1000);
+                Worker1.ReportProgress(percentage);
             }
         }
 
@@ -216,6 +244,6 @@ namespace UI
         }
         #endregion
 
-        
+
     }
 }
