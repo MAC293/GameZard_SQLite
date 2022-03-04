@@ -187,10 +187,12 @@ namespace UI
         private void Worker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
 
+            //?
             Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
             {
                 pbVBA.Value = e.ProgressPercentage;
             }));
+
             //pbVBA.Value = e.ProgressPercentage;
 
         }
@@ -210,16 +212,29 @@ namespace UI
                 Directory.CreateDirectory(dirPath.Replace(sourcePath, targetPath));
             }
 
-            int counter = 0;
+            int counterW = 0;
+
+            int counterW1 = 0;
+
             //Copy all the files replacing any current file with the same name
             foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
             {
                 File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
 
-                counter += 1;
-                int percentage = 100 * counter / sourceQTY.Length;
-                Worker.ReportProgress(percentage);
-                Worker1.ReportProgress(percentage);
+
+                if (Worker.IsBusy)
+                {
+                    counterW += 1;
+                    int percentageW = 100 * counterW / sourceQTY.Length;
+                    Worker.ReportProgress(percentageW);
+                }
+
+                if (Worker1.IsBusy)
+                {
+                    counterW1 += 1;
+                    int percentageW1 = 100 * counterW1 / sourceQTY.Length;
+                    Worker1.ReportProgress(percentageW1);
+                }
             }
         }
 
