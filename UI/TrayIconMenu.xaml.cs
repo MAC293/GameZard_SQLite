@@ -53,6 +53,7 @@ namespace UI
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
+            Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
 
             Worker1 = new BackgroundWorker();
 
@@ -60,24 +61,37 @@ namespace UI
             Worker1.WorkerReportsProgress = true;
             Worker1.ProgressChanged += Worker1_ProgressChanged;
             Worker1.DoWork += Worker1_DoWork;
-
-            //Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            Worker1.RunWorkerCompleted += Worker1_RunWorkerCompleted;
 
         }
 
-        //private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        //{
-        //    if (e.Cancelled)
-        //    {
-        //        //XtraMessageBox.Show("Operation is Aborted!");
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                //XtraMessageBox.Show("Operation is Aborted!");
 
-        //        MessageBox.Show("Operation is Aborted!");
-        //    }
-        //    else
-        //    {
-        //        //MessageBox.Show("Operation is Completed!");
-        //    }
-        //}
+                MessageBox.Show("Worker is Aborted!");
+            }
+            else
+            {
+                MessageBox.Show("Worker is done!");
+            }
+        }
+
+        private void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                //XtraMessageBox.Show("Operation is Aborted!");
+
+                MessageBox.Show("Worker1 is Aborted!");
+            }
+            else
+            {
+                MessageBox.Show("Worker is done!");
+            }
+        }
 
         public List<String> Games
         {
@@ -160,11 +174,13 @@ namespace UI
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             CopyFolder(Game.Savedata.FromPath, Game.Savedata.ToPath);
+            //CopyFolder1(Game.Savedata.FromPath, Game.Savedata.ToPath);
         }
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             //Change the value of the ProgressBar
+            //Thread.Sleep(10000);
             pbPC.Value = e.ProgressPercentage;
         }
 
@@ -188,9 +204,11 @@ namespace UI
         {
 
             //?
-            Dispatcher.BeginInvoke(DispatcherPriority.Background, new Action(() =>
+            Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
             {
+                //Thread.Sleep(5000);
                 pbVBA.Value = e.ProgressPercentage;
+                
             }));
 
             //pbVBA.Value = e.ProgressPercentage;
@@ -203,7 +221,7 @@ namespace UI
             var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
 
             //Target top folder quantity
-            var targetQTY = Directory.GetFiles(targetPath, "*.*", SearchOption.AllDirectories);
+            //var targetQTY = Directory.GetFiles(targetPath, "*.*", SearchOption.AllDirectories);
 
 
             //Creates all of the directories
@@ -214,13 +232,16 @@ namespace UI
 
             int counterW = 0;
 
+            //MessageBox.Show("CounterW: "+ counterW.ToString());
+
             int counterW1 = 0;
+
+            //MessageBox.Show("CounterW1: " + counterW1.ToString());
 
             //Copy all the files replacing any current file with the same name
             foreach (String newPath in Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories))
             {
                 File.Copy(newPath, newPath.Replace(sourcePath, targetPath), true);
-
 
                 if (Worker.IsBusy)
                 {
@@ -235,6 +256,11 @@ namespace UI
                     int percentageW1 = 100 * counterW1 / sourceQTY.Length;
                     Worker1.ReportProgress(percentageW1);
                 }
+
+                //if (pbVBA.Dispatcher.CheckAccess())
+                //{
+                //    MessageBox.Show("pbVBA.Dispatcher.CheckAccess()");
+                //}
             }
         }
 
@@ -258,7 +284,6 @@ namespace UI
             fsout.Close();
         }
         #endregion
-
 
     }
 }
