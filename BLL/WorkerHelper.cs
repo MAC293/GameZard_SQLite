@@ -14,6 +14,7 @@ namespace BLL
         private String _From;
         private String _To;
         private BackgroundWorker _Worker;
+        private int _Progress;
 
         public WorkerHelper()
         {
@@ -40,6 +41,12 @@ namespace BLL
         {
             get { return _Worker; }
             set { _Worker = value; }
+        }
+
+        public int Progress
+        {
+            get { return _Progress; }
+            set { _Progress = value; }
         }
 
         public void CopyFolder(String sourcePath, String targetPath)
@@ -74,9 +81,7 @@ namespace BLL
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             
-            //pbPC.Value = e.ProgressPercentage;
-
-            
+            Progress = e.ProgressPercentage;
         }
 
         public void ExecuteWorker()

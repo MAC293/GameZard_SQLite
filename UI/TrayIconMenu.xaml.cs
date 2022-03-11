@@ -26,7 +26,7 @@ namespace UI
     public partial class TrayIconMenu : Window
     {
         private List<String> _Games;
-        private WorkerHelper _Worker;
+        //private WorkerHelper _Worker;
         private Game _Game;
         private Platform _Platform;
 
@@ -42,12 +42,14 @@ namespace UI
 
             FillList();
 
+            //pbPC.Value = Worker.Progress;
+
         }
 
-        public void InitWorker()
-        {
-            Worker = new WorkerHelper();
-        }
+        //public void InitWorker()
+        //{
+        //    Worker = new WorkerHelper();
+        //}
 
         public List<String> Games
         {
@@ -66,11 +68,11 @@ namespace UI
             get { return _Platform; }
             set { _Platform = value; }
         }
-        public WorkerHelper Worker
-        {
-            get { return _Worker; }
-            set { _Worker = value; }
-        }
+        //public WorkerHelper Worker
+        //{
+        //    get { return _Worker; }
+        //    set { _Worker = value; }
+        //}
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -117,10 +119,12 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-                Worker.From = fromPath;
-                Worker.To = toPath;
+                WorkerHelper pcWorker = new WorkerHelper();
 
-                Worker.ExecuteWorker();
+                pcWorker.From = fromPath;
+                pcWorker.To = toPath;
+
+                pcWorker.ExecuteWorker();
             }
         }
 
@@ -132,6 +136,13 @@ namespace UI
 
             Platform.Savedata.LoadFrom("Visual Boy Advance");
             Platform.Savedata.LoadTo("Visual Boy Advance");
+
+            WorkerHelper vbaWorker = new WorkerHelper();
+
+            vbaWorker.From = Platform.Savedata.FromPath;
+            vbaWorker.To = Platform.Savedata.ToPath;
+
+            vbaWorker.ExecuteWorker();
         }
 
         #region Unused CopyFolder
