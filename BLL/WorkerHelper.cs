@@ -6,10 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BLL
 {
-    public class WorkerHelper
+    public class WorkerHelper : Observer
     {
         private String _From;
         private String _To;
@@ -80,8 +81,11 @@ namespace BLL
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            
+
             Progress = e.ProgressPercentage;
+
+            OnPropertyChanged(nameof(Progress));
+
         }
 
         public void ExecuteWorker()
@@ -89,5 +93,6 @@ namespace BLL
             Worker.RunWorkerAsync();
 
         }
+
     }
 }

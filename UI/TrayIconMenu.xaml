@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
-        xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="UI.TrayIconMenu"
+        xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:local1="clr-namespace:BLL;assembly=BLL" x:Class="UI.TrayIconMenu"
         mc:Ignorable="d"
         Height="695" Width="357" WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <local1:WorkerHelper/>
+    </Window.DataContext>
+    
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="37" Margin="150,5,0,0" VerticalAlignment="Top" Width="32" Source="/PC_Black.ico" RenderTransformOrigin="1.641,0.65"/>
         <ComboBox x:Name="cmbGames" HorizontalAlignment="Left" Margin="28,42,0,0" VerticalAlignment="Top" Width="275"/>
@@ -15,7 +20,7 @@
                 <ImageBrush ImageSource="/Back-Up.ico" />
             </Button.Background>
         </Button>
-        <ProgressBar Name="pbPC" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
+        <ProgressBar Name="pbPC" Value="{Binding Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
         
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="36" Margin="150,108,0,0" VerticalAlignment="Top" Width="32" Source="/VisualBoyAdvance.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnVBABU" HorizontalAlignment="Left" Margin="308,139,0,0" VerticalAlignment="Top" BorderThickness="0" Height="30" Width="26" Click="btnVBABU_Click">
@@ -23,7 +28,7 @@
                 <ImageBrush ImageSource="/Back-Up.ico" />
             </Button.Background>
         </Button>
-        <ProgressBar Name="pbVBA" Foreground="Purple" HorizontalAlignment="Left" Height="16" Margin="28,146,0,0" VerticalAlignment="Top" Width="275"/>
+        <ProgressBar Name="pbVBA" Value="{Binding Progress, UpdateSourceTrigger=Default}" Foreground="Purple" HorizontalAlignment="Left" Height="16" Margin="28,146,0,0" VerticalAlignment="Top" Width="275"/>
         
         <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="36" Margin="150,179,0,0" VerticalAlignment="Top" Width="32" Source="/SNES9x.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnSNESBU" HorizontalAlignment="Left" Margin="308,210,0,0" VerticalAlignment="Top" BorderThickness="0" Height="30" Width="26">
