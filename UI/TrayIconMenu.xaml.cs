@@ -34,7 +34,7 @@ namespace UI
         {
             InitializeComponent();
 
-            InitWorker();
+            //InitWorker();
 
             Games = new List<String>();
 
@@ -45,6 +45,16 @@ namespace UI
             //pbPC.Value = Worker.Progress;
 
         }
+
+        //private bool isLoaded;
+        //private void Window_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    if (isLoaded)
+        //        return;
+        //    isLoaded = true;
+        //    MessageBox.Show("gdsfgd");
+
+        //}
 
         //public void InitWorker()
         //{
@@ -128,12 +138,10 @@ namespace UI
             }
         }
 
-       
-
         private void btnVBABU_Click(object sender, RoutedEventArgs e)
         {
             Platform = new Platform();
-
+            
             Platform.Savedata.LoadFrom("Visual Boy Advance");
             Platform.Savedata.LoadTo("Visual Boy Advance");
 
