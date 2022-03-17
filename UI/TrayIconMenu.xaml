@@ -8,10 +8,12 @@
         mc:Ignorable="d"
         Height="695" Width="357" WindowStartupLocation="CenterScreen">
 
+    <!--DataContext="{Binding Main, Source={StaticResource Locator}}"-->
+
     <Window.DataContext>
         <local1:WorkerHelper/>
     </Window.DataContext>
-    
+
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="37" Margin="150,5,0,0" VerticalAlignment="Top" Width="32" Source="/PC_Black.ico" RenderTransformOrigin="1.641,0.65"/>
         <ComboBox x:Name="cmbGames" HorizontalAlignment="Left" Margin="28,42,0,0" VerticalAlignment="Top" Width="275"/>
@@ -21,7 +23,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbPC" Value="{Binding Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
-        
+
         <Image x:Name="image_Copy" HorizontalAlignment="Left" Height="36" Margin="150,108,0,0" VerticalAlignment="Top" Width="32" Source="/VisualBoyAdvance.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnVBABU" HorizontalAlignment="Left" Margin="308,139,0,0" VerticalAlignment="Top" BorderThickness="0" Height="30" Width="26" Click="btnVBABU_Click">
             <Button.Background>
@@ -29,7 +31,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbVBA" Value="{Binding Progress, UpdateSourceTrigger=Default}" Foreground="Purple" HorizontalAlignment="Left" Height="16" Margin="28,146,0,0" VerticalAlignment="Top" Width="275"/>
-        
+
         <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="36" Margin="150,179,0,0" VerticalAlignment="Top" Width="32" Source="/SNES9x.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnSNESBU" HorizontalAlignment="Left" Margin="308,210,0,0" VerticalAlignment="Top" BorderThickness="0" Height="30" Width="26">
             <Button.Background>
@@ -37,7 +39,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbSNES" HorizontalAlignment="Left" Height="16" Margin="26,217,0,0" VerticalAlignment="Top" Width="277"/>
-        
+
         <Image x:Name="image_Copy2" HorizontalAlignment="Left" Height="36" Margin="150,252,0,0" VerticalAlignment="Top" Width="32" Source="/Cemu.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnCemuBU" HorizontalAlignment="Left" Margin="308,275,0,0" BorderThickness="0" Height="30" Width="26" VerticalAlignment="Top">
             <Button.Background>
@@ -45,7 +47,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbCemu" HorizontalAlignment="Left" Height="16" Margin="26,289,0,0" VerticalAlignment="Top" Width="277"/>
-        
+
         <Image x:Name="image_Copy3" HorizontalAlignment="Left" Height="36" Margin="150,320,0,0" VerticalAlignment="Top" Width="32" Source="/Citra.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnCitraBU" HorizontalAlignment="Left" Margin="308,351,0,0" BorderThickness="0" Height="30" Width="26" VerticalAlignment="Top">
             <Button.Background>
@@ -53,7 +55,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbCitra" HorizontalAlignment="Left" Height="16" Margin="26,358,0,0" VerticalAlignment="Top" Width="277"/>
-        
+
         <Image x:Name="image_Copy4" HorizontalAlignment="Left" Height="36" Margin="150,385,0,0" VerticalAlignment="Top" Width="32" Source="/Dolphin.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnWiiBU" HorizontalAlignment="Left" Margin="308,416,0,0" BorderThickness="0" Height="30" Width="26" VerticalAlignment="Top">
             <Button.Background>
@@ -61,7 +63,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbWii" HorizontalAlignment="Left" Height="16" Margin="26,423,0,0" VerticalAlignment="Top" Width="277"/>
-        
+
         <Label x:Name="label" BorderThickness="0" Content="Wii" HorizontalAlignment="Left" Margin="187,388,0,0" VerticalAlignment="Top"/>
         <Image x:Name="image_Copy5" HorizontalAlignment="Left" Height="36" Margin="150,453,0,0" VerticalAlignment="Top" Width="32" Source="/Dolphin.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnGCBU" HorizontalAlignment="Left" Margin="308,484,0,0" BorderThickness="0" Height="30" Width="26" VerticalAlignment="Top">
@@ -70,7 +72,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbGC" HorizontalAlignment="Left" Height="16" Margin="26,491,0,0" VerticalAlignment="Top" Width="277"/>
-        
+
         <Label x:Name="label_Copy" BorderThickness="0" Content="GameCube" HorizontalAlignment="Left" Margin="187,455,0,0" VerticalAlignment="Top"/>
         <Image x:Name="image_Copy6" HorizontalAlignment="Left" Height="36" Margin="150,519,0,0" VerticalAlignment="Top" Width="32" Source="/ePSXe.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnPSXBU" HorizontalAlignment="Left" Margin="308,550,0,0" BorderThickness="0" Height="30" Width="26" VerticalAlignment="Top">
@@ -79,7 +81,7 @@
             </Button.Background>
         </Button>
         <ProgressBar Name="pbPSX" HorizontalAlignment="Left" Height="16" Margin="26,557,0,0" VerticalAlignment="Top" Width="277"/>
-        
+
         <Image x:Name="image_Copy7" HorizontalAlignment="Left" Height="36" Margin="150,584,0,0" VerticalAlignment="Top" Width="32" Source="/PCSX2.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnPS2BU" HorizontalAlignment="Left" Margin="308,615,0,0" BorderThickness="0" Height="30" Width="26" VerticalAlignment="Top">
             <Button.Background>

@@ -24,6 +24,8 @@ namespace BLL
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
+
+           
         }
 
         public String From
@@ -84,14 +86,14 @@ namespace BLL
 
             Progress = e.ProgressPercentage;
 
-            OnPropertyChanged(nameof(Progress));
+            //OnPropertyChanged(nameof(Progress));
+          
 
         }
 
         public void ExecuteWorker()
         {
             Worker.RunWorkerAsync();
-
         }
 
     }
