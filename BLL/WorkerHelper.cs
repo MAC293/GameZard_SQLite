@@ -96,7 +96,7 @@ namespace BLL
 
             if (Progress > 0)
             {
-                Observer.OnPropertyChanged();
+                Observer.OnPropertyChanged1("Progress");
             }
         }
 
