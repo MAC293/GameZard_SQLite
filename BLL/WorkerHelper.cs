@@ -10,22 +10,25 @@ using System.Windows;
 
 namespace BLL
 {
-    public class WorkerHelper : Observer
+    public class WorkerHelper
     {
         private String _From;
         private String _To;
         private BackgroundWorker _Worker;
         private int _Progress;
+        private Observer _Observer;
 
         public WorkerHelper()
         {
+
+            Observer = new Observer();
             Worker = new BackgroundWorker();
             Worker.WorkerSupportsCancellation = true;
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
 
-           
+
         }
 
         public String From
@@ -50,6 +53,11 @@ namespace BLL
         {
             get { return _Progress; }
             set { _Progress = value; }
+        }
+        public Observer Observer
+        {
+            get { return _Observer; }
+            set { _Observer = value; }
         }
 
         public void CopyFolder(String sourcePath, String targetPath)
@@ -86,9 +94,10 @@ namespace BLL
 
             Progress = e.ProgressPercentage;
 
-            //OnPropertyChanged(nameof(Progress));
-          
-
+            if (Progress > 0)
+            {
+                Observer.OnPropertyChanged();
+            }
         }
 
         public void ExecuteWorker()

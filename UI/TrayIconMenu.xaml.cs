@@ -34,6 +34,7 @@ namespace UI
         {
             InitializeComponent();
 
+
             //InitWorker();
 
             Games = new List<String>();
@@ -129,6 +130,9 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
+                //Observer?
+                //Observer observer = new Observer();
+
                 WorkerHelper pcWorker = new WorkerHelper();
 
                 pcWorker.From = fromPath;
@@ -151,6 +155,7 @@ namespace UI
             vbaWorker.To = Platform.Savedata.ToPath;
 
             vbaWorker.ExecuteWorker();
+
         }
 
         #region Unused CopyFolder
