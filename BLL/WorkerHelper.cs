@@ -28,7 +28,6 @@ namespace BLL
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
 
-
         }
 
         public String From
@@ -96,7 +95,10 @@ namespace BLL
 
             if (Progress > 0)
             {
+                //Observer.OnPropertyChanged("Progress");
                 Observer.OnPropertyChanged1("Progress");
+                //Observer.OnPropertyChanged2();
+                //Observer.OnPropertyChanged3("Progress");
             }
         }
 

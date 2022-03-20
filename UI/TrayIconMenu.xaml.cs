@@ -130,10 +130,9 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-                //Observer?
-                //Observer observer = new Observer();
-
                 WorkerHelper pcWorker = new WorkerHelper();
+
+                gridMenu.DataContext = pcWorker;
 
                 pcWorker.From = fromPath;
                 pcWorker.To = toPath;

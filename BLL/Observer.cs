@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BLL
 {
@@ -17,15 +18,16 @@ namespace BLL
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void OnPropertyChanged1(string propertyName)
+        public void OnPropertyChanged1(String propertyName)
         {
+            
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
-        public void OPropertyChanged2(PropertyChangedEventArgs e)
+        public void OnPropertyChanged2(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)
             {
@@ -33,7 +35,7 @@ namespace BLL
             }
         }
 
-        private void OPropertyChanged3([CallerMemberName] string propertyName = null)
+        public void OnPropertyChanged3([CallerMemberName] String propertyName = null)
         {
             var handler = PropertyChanged;
 
