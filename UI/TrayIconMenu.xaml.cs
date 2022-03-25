@@ -33,6 +33,7 @@ namespace UI
         public TrayIconMenu()
         {
             InitializeComponent();
+            this.DataContext = this;
 
 
             //InitWorker();
@@ -132,12 +133,19 @@ namespace UI
 
                 WorkerHelper pcWorker = new WorkerHelper();
 
-                gridMenu.DataContext = pcWorker;
+                //if (pcWorker.Observer != null)
+                //{
+                //    MessageBox.Show("pcWorker.Observer != null");
+                //}
+
+                //DataContext = pcWorker;
 
                 pcWorker.From = fromPath;
                 pcWorker.To = toPath;
 
                 pcWorker.ExecuteWorker();
+
+                //pbPC.Value = pcWorker.Progress;
             }
         }
 

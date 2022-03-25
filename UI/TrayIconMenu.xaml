@@ -10,9 +10,9 @@
 
     <!--DataContext="{Binding Main, Source={StaticResource Locator}}"-->
 
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <local1:WorkerHelper/>
-    </Window.DataContext>-->
+    </Window.DataContext>
 
     <!--<Window.Resources>
         <local1:WorkerHelper x:Key="WH"></local1:WorkerHelper>
