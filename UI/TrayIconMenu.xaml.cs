@@ -133,6 +133,8 @@ namespace UI
 
                 WorkerHelper pcWorker = new WorkerHelper();
 
+                gridMenu.DataContext = pcWorker;
+
                 //if (pcWorker.Observer != null)
                 //{
                 //    MessageBox.Show("pcWorker.Observer != null");
