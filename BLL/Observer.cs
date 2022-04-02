@@ -26,16 +26,8 @@ namespace BLL
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        public void OnPropertyChanged2(PropertyChangedEventArgs e)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, e);
-            }
-        }
-
-        public void OnPropertyChanged3([CallerMemberName] String propertyName = null)
+                                        
+        public void OnPropertyChanged2([CallerMemberName] String propertyName = null)
         {
             var handler = PropertyChanged;
 

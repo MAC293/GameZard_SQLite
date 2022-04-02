@@ -33,9 +33,9 @@ namespace UI
         public TrayIconMenu()
         {
             InitializeComponent();
-            this.DataContext = this;
 
-
+            //this.DataContext = this;
+            
             //InitWorker();
 
             Games = new List<String>();
@@ -132,15 +132,21 @@ namespace UI
                 String toPath = Game.Savedata.ToPath;
 
                 WorkerHelper pcWorker = new WorkerHelper();
-
-                gridMenu.DataContext = pcWorker;
+                
+                //gridMenu.DataContext = pcWorker.Progress;
+                //gridMenu.DataContext = pcWorker;
 
                 //if (pcWorker.Observer != null)
                 //{
                 //    MessageBox.Show("pcWorker.Observer != null");
                 //}
 
+                gridMenu.DataContext = pcWorker;
+
+                //DataContext = this;
+
                 //DataContext = pcWorker;
+
 
                 pcWorker.From = fromPath;
                 pcWorker.To = toPath;
