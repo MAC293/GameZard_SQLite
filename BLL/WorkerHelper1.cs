@@ -98,8 +98,6 @@ namespace BLL
             if (Progress > 0)
             {
                 OnPropertyChanged(nameof(Progress));
-
-
             }
         }
 
@@ -113,7 +111,6 @@ namespace BLL
 
             if (PropertyChanged != null)
             {
-                //PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }

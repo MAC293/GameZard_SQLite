@@ -96,10 +96,10 @@ namespace BLL
             if (Progress > 0)
             {
                 //Observer.OnPropertyChanged("Progress");
-                //Observer.OnPropertyChanged(nameof(Progress));
+                Observer.OnPropertyChanged4(nameof(Progress));
                 //Observer.OnPropertyChanged();
 
-                Observer.OnPropertyChanged1(propertyName: nameof(Progress));
+                //Observer.OnPropertyChanged1(propertyName: nameof(Progress));
                 //Observer.OnPropertyChanged1("Progress");
 
                 //Observer.OnPropertyChanged2(nameof(Progress));

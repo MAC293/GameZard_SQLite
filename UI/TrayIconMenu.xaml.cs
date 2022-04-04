@@ -139,6 +139,13 @@ namespace UI
 
                 WorkerHelper1 pcWorker1 = new WorkerHelper1();
 
+                pcWorker1.From = fromPath;
+                pcWorker1.To = toPath;
+
+                DataContext = pcWorker1;
+
+                pcWorker1.ExecuteWorker();
+
                 //Observer newObserver = new Observer();
 
                 //gridMenu.DataContext = pcWorker.Progress;
@@ -158,13 +165,6 @@ namespace UI
                 //pcWorker.To = toPath;
 
                 //pcWorker.ExecuteWorker();
-
-                pcWorker1.From = fromPath;
-                pcWorker1.To = toPath;
-
-                DataContext = pcWorker1;
-
-                pcWorker1.ExecuteWorker();
 
                 //pbPC.Value = pcWorker.Progress;
             }

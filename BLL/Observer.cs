@@ -43,5 +43,14 @@ namespace BLL
 
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public void OnPropertyChanged4(String propertyName)
+        {
+
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
