@@ -34,7 +34,7 @@ namespace UI
         {
             InitializeComponent();
 
-
+            //DataContext = gridMenu;
             //Datacontext
             //DataContext = this;
 
@@ -82,6 +82,7 @@ namespace UI
             get { return _Platform; }
             set { _Platform = value; }
         }
+
         //public WorkerHelper Worker
         //{
         //    get { return _Worker; }
@@ -133,12 +134,18 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-                WorkerHelper pcWorker = new WorkerHelper();
+
+                //WorkerHelper pcWorker = new WorkerHelper();
+
+                WorkerHelper1 pcWorker1 = new WorkerHelper1();
+
+                //Observer newObserver = new Observer();
 
                 //gridMenu.DataContext = pcWorker.Progress;
                 //gridMenu.DataContext = pcWorker;
                 //DataContext = this;
-                DataContext = pcWorker;
+                //DataContext = pcWorker;
+                //DataContext = newObserver;
                 //gridMenu.DataContext = pcWorker;
                 //DataContext = this;
 
@@ -147,12 +154,17 @@ namespace UI
                 //    MessageBox.Show("pcWorker.Observer != null");
                 //}
 
+                //pcWorker.From = fromPath;
+                //pcWorker.To = toPath;
 
+                //pcWorker.ExecuteWorker();
 
-                pcWorker.From = fromPath;
-                pcWorker.To = toPath;
+                pcWorker1.From = fromPath;
+                pcWorker1.To = toPath;
 
-                pcWorker.ExecuteWorker();
+                DataContext = pcWorker1;
+
+                pcWorker1.ExecuteWorker();
 
                 //pbPC.Value = pcWorker.Progress;
             }

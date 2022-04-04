@@ -10,10 +10,14 @@
 
     <!--DataContext="{Binding Main, Source={StaticResource Locator}}"-->
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <local1:WorkerHelper/>
-    </Window.DataContext>
+    </Window.DataContext>-->
 
+    <Window.DataContext>
+        <local1:WorkerHelper1/>
+    </Window.DataContext>
+    
     <!--<Window.Resources>
         <local1:WorkerHelper x:Key="WH"></local1:WorkerHelper>
     </Window.Resources>-->
@@ -26,8 +30,8 @@
                 <ImageBrush ImageSource="/Back-Up.ico" />
             </Button.Background>
         </Button>
-        <ProgressBar Name="pbPC" Value="{Binding Path = Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
-        <!--<ProgressBar Name="pbPC" Value="{Binding Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
+        <!--<ProgressBar Name="pbPC" Value="{Binding Path = Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
+        <ProgressBar Name="pbPC" Value="{Binding Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
         <!--<ProgressBar Name="pbPC" Value="{Binding Progress, UpdateSourceTrigger=PropertyChanged}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
         <!--<ProgressBar Name="pbPC" Value="{Binding XPath = Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
         <!--<ProgressBar Name="pbPC" Value="{Binding Progress, Mode=OneWay}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
