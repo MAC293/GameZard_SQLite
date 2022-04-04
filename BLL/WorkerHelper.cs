@@ -97,12 +97,15 @@ namespace BLL
             {
                 //Observer.OnPropertyChanged("Progress");
                 //Observer.OnPropertyChanged(nameof(Progress));
+                //Observer.OnPropertyChanged();
 
                 Observer.OnPropertyChanged1(propertyName: nameof(Progress));
                 //Observer.OnPropertyChanged1("Progress");
 
                 //Observer.OnPropertyChanged2(nameof(Progress));
                 //Observer.OnPropertyChanged2("Progress");
+
+                //Observer.OnPropertyChanged3();
 
 
             }

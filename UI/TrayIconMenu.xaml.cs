@@ -34,8 +34,10 @@ namespace UI
         {
             InitializeComponent();
 
-            //this.DataContext = this;
-            
+
+            //Datacontext
+            //DataContext = this;
+
             //InitWorker();
 
             Games = new List<String>();
@@ -132,20 +134,19 @@ namespace UI
                 String toPath = Game.Savedata.ToPath;
 
                 WorkerHelper pcWorker = new WorkerHelper();
-                
+
                 //gridMenu.DataContext = pcWorker.Progress;
                 //gridMenu.DataContext = pcWorker;
+                //DataContext = this;
+                DataContext = pcWorker;
+                //gridMenu.DataContext = pcWorker;
+                //DataContext = this;
 
                 //if (pcWorker.Observer != null)
                 //{
                 //    MessageBox.Show("pcWorker.Observer != null");
                 //}
 
-                gridMenu.DataContext = pcWorker;
-
-                //DataContext = this;
-
-                //DataContext = pcWorker;
 
 
                 pcWorker.From = fromPath;

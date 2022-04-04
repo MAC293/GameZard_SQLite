@@ -36,5 +36,12 @@ namespace BLL
                 handler(this, new PropertyChangedEventArgs(propertyName));
             } 
         }
+
+        public void OnPropertyChanged3([CallerMemberName] String propertyName = null)
+        {
+            if (PropertyChanged != null)
+
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
