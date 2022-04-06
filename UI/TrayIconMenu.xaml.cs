@@ -34,12 +34,6 @@ namespace UI
         {
             InitializeComponent();
 
-            //DataContext = gridMenu;
-            //Datacontext
-            //DataContext = this;
-
-            //InitWorker();
-
             Games = new List<String>();
 
             TrayMenu.DisplayGames(Games);
@@ -134,9 +128,6 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-
-                //WorkerHelper pcWorker = new WorkerHelper();
-
                 WorkerHelper1 pcWorker1 = new WorkerHelper1();
 
                 pcWorker1.From = fromPath;
@@ -145,28 +136,6 @@ namespace UI
                 DataContext = pcWorker1;
 
                 pcWorker1.ExecuteWorker();
-
-                //Observer newObserver = new Observer();
-
-                //gridMenu.DataContext = pcWorker.Progress;
-                //gridMenu.DataContext = pcWorker;
-                //DataContext = this;
-                //DataContext = pcWorker;
-                //DataContext = newObserver;
-                //gridMenu.DataContext = pcWorker;
-                //DataContext = this;
-
-                //if (pcWorker.Observer != null)
-                //{
-                //    MessageBox.Show("pcWorker.Observer != null");
-                //}
-
-                //pcWorker.From = fromPath;
-                //pcWorker.To = toPath;
-
-                //pcWorker.ExecuteWorker();
-
-                //pbPC.Value = pcWorker.Progress;
             }
         }
 
