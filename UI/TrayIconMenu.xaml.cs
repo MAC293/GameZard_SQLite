@@ -128,14 +128,16 @@ namespace UI
                 //To Path
                 String toPath = Game.Savedata.ToPath;
 
-                WorkerHelper1 pcWorker1 = new WorkerHelper1();
+                WorkerHelper1 pcWorker = new WorkerHelper1();
 
-                pcWorker1.From = fromPath;
-                pcWorker1.To = toPath;
+                pcWorker.From = fromPath;
+                pcWorker.To = toPath;
 
-                DataContext = pcWorker1;
+                pcWorker.ProgressBar = "PC";
 
-                pcWorker1.ExecuteWorker();
+                DataContext = pcWorker;
+
+                pcWorker.ExecuteWorker();
             }
         }
 
@@ -146,10 +148,14 @@ namespace UI
             Platform.Savedata.LoadFrom("Visual Boy Advance");
             Platform.Savedata.LoadTo("Visual Boy Advance");
 
-            WorkerHelper vbaWorker = new WorkerHelper();
+            WorkerHelper1 vbaWorker = new WorkerHelper1();
 
             vbaWorker.From = Platform.Savedata.FromPath;
             vbaWorker.To = Platform.Savedata.ToPath;
+
+            vbaWorker.ProgressBar = "VBA";
+
+            DataContext = vbaWorker;
 
             vbaWorker.ExecuteWorker();
 

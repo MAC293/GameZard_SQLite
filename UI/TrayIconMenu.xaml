@@ -14,9 +14,9 @@
         <local1:WorkerHelper/>
     </Window.DataContext>-->
 
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <local1:WorkerHelper1/>
-    </Window.DataContext>-->
+    </Window.DataContext>
     
     <!--<Window.Resources>
         <local1:WorkerHelper x:Key="WH"></local1:WorkerHelper>
@@ -31,7 +31,7 @@
             </Button.Background>
         </Button>
         <!--<ProgressBar Name="pbPC" Value="{Binding Path = Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
-        <ProgressBar Name="pbPC" Value="{Binding Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
+        <ProgressBar Name="pbPC" Value="{Binding PCBar}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>
         <!--<ProgressBar Name="pbPC" Value="{Binding Progress, UpdateSourceTrigger=PropertyChanged}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
         <!--<ProgressBar Name="pbPC" Value="{Binding XPath = Progress}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
         <!--<ProgressBar Name="pbPC" Value="{Binding Progress, Mode=OneWay}" Foreground="Black" Visibility="Visible" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="16" Margin="28,77,0,0" VerticalAlignment="Top" Width="276"/>-->
@@ -43,7 +43,7 @@
                 <ImageBrush ImageSource="/Back-Up.ico" />
             </Button.Background>
         </Button>
-        <ProgressBar Name="pbVBA" Foreground="Purple" HorizontalAlignment="Left" Height="16" Margin="28,146,0,0" VerticalAlignment="Top" Width="275"/>
+        <ProgressBar Name="pbVBA" Value="{Binding VBABar}" Foreground="Purple" HorizontalAlignment="Left" Height="16" Margin="28,146,0,0" VerticalAlignment="Top" Width="275"/>
 
         <Image x:Name="image_Copy1" HorizontalAlignment="Left" Height="36" Margin="150,179,0,0" VerticalAlignment="Top" Width="32" Source="/SNES9x.ico" RenderTransformOrigin="1.641,0.65"/>
         <Button x:Name="btnSNESBU" HorizontalAlignment="Left" Margin="308,210,0,0" VerticalAlignment="Top" BorderThickness="0" Height="30" Width="26">

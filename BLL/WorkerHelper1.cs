@@ -7,19 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace BLL
 {
-    public class WorkerHelper1 : INotifyPropertyChanged
+    public class WorkerHelper1 : INotifyPropertyChanged, IBars
     {
         private String _From;
         private String _To;
         private BackgroundWorker _Worker;
-        private int _Progress;
+        //private int _Progress;
+        private String _ProgressBar;
+        public int PCBar { get; set; }
+        public int VBABar { get; set; }
         //private Observer _Observer;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         public WorkerHelper1()
         {
 
@@ -31,7 +34,7 @@ namespace BLL
             Worker.DoWork += Worker_DoWork;
 
         }
-
+        
         public String From
         {
             get { return _From; }
@@ -50,11 +53,19 @@ namespace BLL
             set { _Worker = value; }
         }
 
-        public int Progress
+        //public int Progress
+        //{
+        //    get { return _Progress; }
+        //    set { _Progress = value; }
+        //}
+
+        public String ProgressBar
         {
-            get { return _Progress; }
-            set { _Progress = value; }
+            get { return _ProgressBar; }
+            set { _ProgressBar = value; }
         }
+
+
         //public Observer Observer
         //{
         //    get { return _Observer; }
@@ -93,11 +104,29 @@ namespace BLL
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
 
-            Progress = e.ProgressPercentage;
-
-            if (Progress > 0)
+            if (ProgressBar == "PC")
             {
-                OnPropertyChanged(nameof(Progress));
+                PCBar = e.ProgressPercentage;
+
+                if (PCBar > 0)
+                {
+                    OnPropertyChanged(nameof(PCBar));
+
+                }
+
+            }
+
+            if (ProgressBar == "VBA")
+            {
+                //VBABar = e.ProgressPercentage;
+
+                VBABar = e.ProgressPercentage;
+
+                if (VBABar > 0)
+                {
+                    OnPropertyChanged(nameof(VBABar));
+                }
+
             }
         }
 
