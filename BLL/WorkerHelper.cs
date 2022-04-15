@@ -10,24 +10,31 @@ using System.Windows;
 
 namespace BLL
 {
-    public class WorkerHelper
+    public class WorkerHelper : INotifyPropertyChanged, IBars
     {
         private String _From;
         private String _To;
         private BackgroundWorker _Worker;
-        private int _Progress;
-        private Observer _Observer;
+        private BackgroundWorker _Worker1;
+        private String _ProgressBar;
+        public int PCBar { get; set; }
+        public int VBABar { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public WorkerHelper()
         {
-
-            Observer = new Observer();
             Worker = new BackgroundWorker();
             Worker.WorkerSupportsCancellation = true;
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
 
+            Worker1 = new BackgroundWorker();
+            //Worker1.Worker1SupportsCancellation = true;
+            Worker1.WorkerReportsProgress = true;
+            Worker1.ProgressChanged += Worker1_ProgressChanged;
+            Worker1.DoWork += Worker1_DoWork;
         }
 
         public String From
@@ -48,23 +55,24 @@ namespace BLL
             set { _Worker = value; }
         }
 
-        public int Progress
+        public BackgroundWorker Worker1
         {
-            get { return _Progress; }
-            set { _Progress = value; }
+            get { return _Worker1; }
+            set { _Worker1 = value; }
         }
-        public Observer Observer
+
+        public String ProgressBar
         {
-            get { return _Observer; }
-            set { _Observer = value; }
+            get { return _ProgressBar; }
+            set { _ProgressBar = value; }
         }
 
         public void CopyFolder(String sourcePath, String targetPath)
         {
-            var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
+            MessageBox.Show("Source Path: " + sourcePath);
+            MessageBox.Show("Target Path: " + targetPath);
 
-            //Target top folder quantity
-            //var targetQTY = Directory.GetFiles(targetPath, "*.*", SearchOption.AllDirectories);
+            var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
 
             foreach (String dirPath in Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories))
             {
@@ -79,7 +87,16 @@ namespace BLL
 
                 counter += 1;
                 int percentageW = 100 * counter / sourceQTY.Length;
-                Worker.ReportProgress(percentageW);
+
+                if (Worker.IsBusy)
+                {
+                    Worker.ReportProgress(percentageW);
+                }
+
+                if (Worker1.IsBusy)
+                {
+                    Worker1.ReportProgress(percentageW);
+                }
             }
         }
 
@@ -88,33 +105,56 @@ namespace BLL
             CopyFolder(From, To);
         }
 
+        private void Worker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CopyFolder(From, To);
+        }
+
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
-            Progress = e.ProgressPercentage;
-
-            if (Progress > 0)
+            if (ProgressBar == "PC")
             {
-                //Observer.OnPropertyChanged("Progress");
-                Observer.OnPropertyChanged4(nameof(Progress));
-                //Observer.OnPropertyChanged();
+                PCBar = e.ProgressPercentage;
 
-                //Observer.OnPropertyChanged1(propertyName: nameof(Progress));
-                //Observer.OnPropertyChanged1("Progress");
+                if (PCBar > 0)
+                {
+                    OnPropertyChanged(nameof(PCBar));
+                }
+            }
+        }
 
-                //Observer.OnPropertyChanged2(nameof(Progress));
-                //Observer.OnPropertyChanged2("Progress");
+        private void Worker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (ProgressBar == "VBA")
+            {
+                VBABar = e.ProgressPercentage;
 
-                //Observer.OnPropertyChanged3();
-
-
+                if (VBABar > 0)
+                {
+                    OnPropertyChanged(nameof(VBABar));
+                }
             }
         }
 
         public void ExecuteWorker()
         {
-            Worker.RunWorkerAsync();
+            if (ProgressBar == "PC")
+            {
+                Worker.RunWorkerAsync();
+            }
+
+            if (ProgressBar == "VBA")
+            {
+                Worker1.RunWorkerAsync();
+            }
         }
 
+        public void OnPropertyChanged(String propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

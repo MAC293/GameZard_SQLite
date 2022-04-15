@@ -25,7 +25,8 @@ namespace UI
     /// </summary>
     public partial class TrayIconMenu : Window
     {
-        private List<String> _Games;
+        private List<string> _Games;
+
         //private WorkerHelper _Worker;
         private Game _Game;
         private Platform _Platform;
@@ -34,14 +35,13 @@ namespace UI
         {
             InitializeComponent();
 
-            Games = new List<String>();
+            Games = new List<string>();
 
             TrayMenu.DisplayGames(Games);
 
             FillList();
 
             //pbPC.Value = Worker.Progress;
-
         }
 
         //private bool isLoaded;
@@ -59,22 +59,22 @@ namespace UI
         //    Worker = new WorkerHelper();
         //}
 
-        public List<String> Games
+        public List<string> Games
         {
-            get { return _Games; }
-            set { _Games = value; }
+            get => _Games;
+            set => _Games = value;
         }
 
         public Game Game
         {
-            get { return _Game; }
-            set { _Game = value; }
+            get => _Game;
+            set => _Game = value;
         }
 
         public Platform Platform
         {
-            get { return _Platform; }
-            set { _Platform = value; }
+            get => _Platform;
+            set => _Platform = value;
         }
 
         //public WorkerHelper Worker
@@ -91,17 +91,11 @@ namespace UI
         public void FillList()
         {
             if (Games != null)
-            {
                 if (Games.Count > 0)
-                {
                     foreach (var game in Games)
-                    {
                         cmbGames.Items.Add(game);
-                    }
 
-                    //lbGames.ItemsSource = Game.Games;
-                }
-            }
+                //lbGames.ItemsSource = Game.Games;
         }
 
         private void btnPCBU_Click(object sender, RoutedEventArgs e)
@@ -112,23 +106,24 @@ namespace UI
             }
             else
             {
-                String gameName = cmbGames.SelectedValue.ToString();
+                var gameName = cmbGames.SelectedValue.ToString();
 
                 Game = new Game();
 
-                String gameID = Game.SendID(gameName);
+                var gameID = Game.SendID(gameName);
 
                 Game.Savedata.LoadFrom(gameID);
 
                 //From Path
-                String fromPath = Game.Savedata.FromPath;
+                var fromPath = Game.Savedata.FromPath;
 
                 Game.Savedata.LoadTo(gameID);
 
                 //To Path
-                String toPath = Game.Savedata.ToPath;
+                var toPath = Game.Savedata.ToPath;
 
-                WorkerHelper1 pcWorker = new WorkerHelper1();
+                //WorkerHelper1 pcWorker = new WorkerHelper1();
+                WorkerHelper pcWorker = new WorkerHelper();
 
                 pcWorker.From = fromPath;
                 pcWorker.To = toPath;
@@ -144,11 +139,12 @@ namespace UI
         private void btnVBABU_Click(object sender, RoutedEventArgs e)
         {
             Platform = new Platform();
-            
+
             Platform.Savedata.LoadFrom("Visual Boy Advance");
             Platform.Savedata.LoadTo("Visual Boy Advance");
 
-            WorkerHelper1 vbaWorker = new WorkerHelper1();
+            //WorkerHelper1 vbaWorker = new WorkerHelper1();
+            WorkerHelper vbaWorker = new WorkerHelper();
 
             vbaWorker.From = Platform.Savedata.FromPath;
             vbaWorker.To = Platform.Savedata.ToPath;
@@ -158,29 +154,27 @@ namespace UI
             DataContext = vbaWorker;
 
             vbaWorker.ExecuteWorker();
-
         }
 
         #region Unused CopyFolder
-        public void CopyFolder1(String source, String target)
-        {
-            FileStream fsin = new FileStream(source, FileMode.Open);
-            FileStream fsout = new FileStream(target, FileMode.Create);
 
-            byte[] buffer = new Byte[10000000]; //10 GB
+        public void CopyFolder1(string source, string target)
+        {
+            var fsin = new FileStream(source, FileMode.Open);
+            var fsout = new FileStream(target, FileMode.Create);
+
+            var buffer = new byte[10000000]; //10 GB
 
             int readBytes;
 
             while ((readBytes = fsin.Read(buffer, 0, buffer.Length)) > 0)
-            {
                 fsout.Write(buffer, 0, readBytes);
-                //Worker.ReportProgress((int)(fsin.Position * 100 / fsin.Length));
-            }
+            //Worker.ReportProgress((int)(fsin.Position * 100 / fsin.Length));
 
             fsin.Close();
             fsout.Close();
         }
-        #endregion
 
+        #endregion
     }
 }
