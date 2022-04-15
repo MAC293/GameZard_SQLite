@@ -15,7 +15,7 @@
     </Window.DataContext>-->
 
     <Window.DataContext>
-        <local1:WorkerHelper1/>
+        <local1:WorkerHelper/>
     </Window.DataContext>
     
     <!--<Window.Resources>

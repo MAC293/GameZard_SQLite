@@ -91,11 +91,17 @@ namespace UI
         public void FillList()
         {
             if (Games != null)
+            {
                 if (Games.Count > 0)
+                {
                     foreach (var game in Games)
+                    {
                         cmbGames.Items.Add(game);
+                    }
+                }
+            }
 
-                //lbGames.ItemsSource = Game.Games;
+            //lbGames.ItemsSource = Game.Games;
         }
 
         private void btnPCBU_Click(object sender, RoutedEventArgs e)

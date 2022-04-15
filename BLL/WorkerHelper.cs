@@ -15,7 +15,6 @@ namespace BLL
         private String _From;
         private String _To;
         private BackgroundWorker _Worker;
-        private BackgroundWorker _Worker1;
         private String _ProgressBar;
         public int PCBar { get; set; }
         public int VBABar { get; set; }
@@ -29,12 +28,6 @@ namespace BLL
             Worker.WorkerReportsProgress = true;
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.DoWork += Worker_DoWork;
-
-            Worker1 = new BackgroundWorker();
-            //Worker1.Worker1SupportsCancellation = true;
-            Worker1.WorkerReportsProgress = true;
-            Worker1.ProgressChanged += Worker1_ProgressChanged;
-            Worker1.DoWork += Worker1_DoWork;
         }
 
         public String From
@@ -55,12 +48,6 @@ namespace BLL
             set { _Worker = value; }
         }
 
-        public BackgroundWorker Worker1
-        {
-            get { return _Worker1; }
-            set { _Worker1 = value; }
-        }
-
         public String ProgressBar
         {
             get { return _ProgressBar; }
@@ -69,8 +56,8 @@ namespace BLL
 
         public void CopyFolder(String sourcePath, String targetPath)
         {
-            MessageBox.Show("Source Path: " + sourcePath);
-            MessageBox.Show("Target Path: " + targetPath);
+            //MessageBox.Show("Source Path: " + sourcePath);
+            //MessageBox.Show("Target Path: " + targetPath);
 
             var sourceQTY = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
 
@@ -88,24 +75,11 @@ namespace BLL
                 counter += 1;
                 int percentageW = 100 * counter / sourceQTY.Length;
 
-                if (Worker.IsBusy)
-                {
-                    Worker.ReportProgress(percentageW);
-                }
-
-                if (Worker1.IsBusy)
-                {
-                    Worker1.ReportProgress(percentageW);
-                }
+                Worker.ReportProgress(percentageW);
             }
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            CopyFolder(From, To);
-        }
-
-        private void Worker1_DoWork(object sender, DoWorkEventArgs e)
         {
             CopyFolder(From, To);
         }
@@ -121,10 +95,7 @@ namespace BLL
                     OnPropertyChanged(nameof(PCBar));
                 }
             }
-        }
 
-        private void Worker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
             if (ProgressBar == "VBA")
             {
                 VBABar = e.ProgressPercentage;
@@ -136,6 +107,7 @@ namespace BLL
             }
         }
 
+
         public void ExecuteWorker()
         {
             if (ProgressBar == "PC")
@@ -145,7 +117,7 @@ namespace BLL
 
             if (ProgressBar == "VBA")
             {
-                Worker1.RunWorkerAsync();
+                Worker.RunWorkerAsync();
             }
         }
 
