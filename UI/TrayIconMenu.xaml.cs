@@ -131,6 +131,8 @@ namespace UI
                 //WorkerHelper1 pcWorker = new WorkerHelper1();
                 WorkerHelper pcWorker = new WorkerHelper();
 
+                pcWorker.CreateWorker();
+
                 pcWorker.From = fromPath;
                 pcWorker.To = toPath;
 
@@ -151,6 +153,8 @@ namespace UI
 
             //WorkerHelper1 vbaWorker = new WorkerHelper1();
             WorkerHelper vbaWorker = new WorkerHelper();
+
+            vbaWorker.CreateWorker();
 
             vbaWorker.From = Platform.Savedata.FromPath;
             vbaWorker.To = Platform.Savedata.ToPath;

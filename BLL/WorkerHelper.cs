@@ -23,11 +23,11 @@ namespace BLL
 
         public WorkerHelper()
         {
-            Worker = new BackgroundWorker();
-            Worker.WorkerSupportsCancellation = true;
-            Worker.WorkerReportsProgress = true;
-            Worker.ProgressChanged += Worker_ProgressChanged;
-            Worker.DoWork += Worker_DoWork;
+            //Worker = new BackgroundWorker();
+            //Worker.WorkerSupportsCancellation = true;
+            //Worker.WorkerReportsProgress = true;
+            //Worker.ProgressChanged += Worker_ProgressChanged;
+            //Worker.DoWork += Worker_DoWork;
         }
 
         public String From
@@ -52,6 +52,15 @@ namespace BLL
         {
             get { return _ProgressBar; }
             set { _ProgressBar = value; }
+        }
+
+        public void CreateWorker()
+        {
+            Worker = new BackgroundWorker();
+            Worker.WorkerSupportsCancellation = true;
+            Worker.WorkerReportsProgress = true;
+            Worker.ProgressChanged += Worker_ProgressChanged;
+            Worker.DoWork += Worker_DoWork;
         }
 
         public void CopyFolder(String sourcePath, String targetPath)
@@ -106,7 +115,6 @@ namespace BLL
                 }
             }
         }
-
 
         public void ExecuteWorker()
         {
